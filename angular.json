@@ -7,7 +7,7 @@
       "root": "projects/lcu/",
       "sourceRoot": "projects/lcu/src",
       "projectType": "application",
-      "prefix": "lib",
+      "prefix": "lcu",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -147,7 +147,7 @@
       "root": "projects/common",
       "sourceRoot": "projects/common/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "lcu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -182,7 +182,7 @@
       "root": "projects/demo/",
       "sourceRoot": "projects/demo/src",
       "projectType": "application",
-      "prefix": "lib",
+      "prefix": "lcu",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"

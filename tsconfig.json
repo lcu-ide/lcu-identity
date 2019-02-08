@@ -19,10 +19,10 @@
 			"dom"
 		],
 		"paths": {
-			"common": [
+			"@lcu-ide/lcu-identity-common": [
 				"dist/common"
 			],
-			"common/*": [
+			"@lcu-ide/lcu-identity-common/*": [
 				"dist/common/*"
 			]
 		}

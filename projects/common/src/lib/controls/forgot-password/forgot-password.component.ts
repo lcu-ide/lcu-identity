@@ -1,0 +1,16 @@
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+@Component({
+  selector: 'lcu-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
+})
+export class ForgotPasswordComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
