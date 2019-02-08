@@ -1,7 +1,7 @@
-{
-	"templates": {
-		"repository": "lowcodeunit-devkit/lcu-cli-templates-core",
-		"scope": "@lcu-ide",
-		"workspace": "lcu-identity"
-	}
+{ 
+    "templates": {
+        "repository": "lowcodeunit-devkit/lcu-cli-templates-core",
+        "scope": "@lcu-ide",
+        "workspace": "lcu-identity"
+    }
 }
