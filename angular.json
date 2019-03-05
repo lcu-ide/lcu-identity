@@ -24,7 +24,6 @@
             "tsConfig": "projects/lcu/tsconfig.app.json",
             "assets": [
               "projects/lcu/src/favicon.ico",
-              "projects/lcu/src/assets",
               {
                 "glob": "package.json",
                 "input": "./projects/lcu/",
