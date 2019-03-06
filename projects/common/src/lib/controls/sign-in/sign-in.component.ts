@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BaseModeledResponse, Status } from '@lcu-ide/common';
-import { SignInModel } from '../../core/sign-in.model';
+import { SignInModel } from './sign-in.model';
 
 @Component({
   selector: 'lcu-sign-in',
