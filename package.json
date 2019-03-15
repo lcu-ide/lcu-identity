@@ -1,6 +1,6 @@
 {
   "name": "@lcu-ide/lcu-identity",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "build:common": "ng build common",
     "build:lcu": "ng build lcu --prod --single-bundle && npm run pack",
