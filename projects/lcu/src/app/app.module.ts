@@ -2,7 +2,14 @@ import { NgModule, DoBootstrap, Injector } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { createCustomElement } from '@angular/elements';
 import { FathymSharedModule } from '@lcu-ide/common';
-import { SignInComponent, RegisterComponent, ForgotPasswordComponent, LcuIdentityModule } from '@lcu-ide/lcu-identity-common';
+import {
+  SignInComponent,
+  RegisterComponent,
+  ForgotPasswordComponent,
+  LcuIdentityModule,
+  IdentityConfigManagerElementComponent,
+  SELECTOR_IDENTITY_CONFIG_MANAGER_ELEMENT
+} from '@lcu-ide/lcu-identity-common';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
@@ -27,5 +34,9 @@ export class AppModule implements DoBootstrap {
     const forgotPassword = createCustomElement(ForgotPasswordComponent, { injector: this.injector });
 
     customElements.define('lcu-forgot-password', forgotPassword);
+
+    const idCfgMgr = createCustomElement(IdentityConfigManagerElementComponent, { injector: this.injector });
+
+    customElements.define(SELECTOR_IDENTITY_CONFIG_MANAGER_ELEMENT, idCfgMgr);
   }
 }

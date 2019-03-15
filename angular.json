@@ -28,6 +28,11 @@
                 "glob": "package.json",
                 "input": "./projects/lcu/",
                 "output": "/"
+              },
+              {
+                "glob": "lcu.json",
+                "input": "./",
+                "output": "/"
               }
             ],
             "styles": [
