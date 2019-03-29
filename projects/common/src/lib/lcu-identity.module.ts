@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatCheckboxModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatCheckboxModule, MatStepperModule } from '@angular/material';
 import { SignInComponent } from './controls/sign-in/sign-in.component';
 import { RegisterComponent } from './controls/register/register.component';
 import { ForgotPasswordComponent } from './controls/forgot-password/forgot-password.component';
@@ -11,13 +12,15 @@ import { IdentityConfigManagerElementComponent } from './elements/identity-confi
   declarations: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent],
   imports: [
     FathymSharedModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatStepperModule
   ],
   exports: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent],
   entryComponents: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent]

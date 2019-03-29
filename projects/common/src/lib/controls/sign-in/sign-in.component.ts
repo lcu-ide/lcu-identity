@@ -35,7 +35,9 @@ export class SignInComponent implements OnChanges, OnInit {
   // 	Life Cycle
   public ngOnChanges(_: SimpleChanges) {
     if (_['Username']) {
-      this.SignInFormGroup.controls.username.setValue(this.Username);
+      if (this.SignInFormGroup) {
+        this.SignInFormGroup.controls.username.setValue(this.Username);
+      }
     }
   }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RegisterModel } from '@lcu-ide/lcu-identity-common';
 
 @Component({
   selector: 'lcu-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
+
+  public HandleRegister(reg: RegisterModel) {
+    alert('Register: ' + JSON.stringify(reg));
+  }
 }
