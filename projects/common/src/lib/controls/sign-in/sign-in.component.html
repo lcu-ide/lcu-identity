@@ -1,21 +1,34 @@
-<form [formGroup]="SignInFormGroup" (ngSubmit)="HandleSignIn()">
-  <ng-template matStepLabel>User Information</ng-template>
+<div fxFlex fxLayoutAlign="center center">
+  <form [formGroup]="Form" fxLayoutAlign="center center" fxLayout="column">
+    <mat-card fxFlex fxLayoutAlign="start" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon class="mr-10">face</mat-icon>
+          <mat-form-field class="full-width">
+            <input formControlName="fieldusername" matInput placeholder="Username" required>
+          </mat-form-field>
+        </div>
 
-  <mat-form-field class="mat-full-width">
-    <input matInput placeholder="Username" formControlName="username" />
-  </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon class="mr-10">lock</mat-icon>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Password" formControlName="fieldpassword" [type]="HidePassword ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+        </div>
 
-  <mat-form-field class="mat-full-width">
-    <input matInput type="password" placeholder="Password" formControlName="password" />
-  </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-slide-toggle color="primary" formControlName="fieldrememberMe" class="mr-10">Remember Me</mat-slide-toggle>
+          <button mat-button color="primary"(click)="ForgotPasswordHandler()" class="ml-10">Forgot password?</button>
+        </div>
 
-  <ng-container *ngIf="UseRememberMe">
-    <mat-checkbox class="mat-full-width" formControlName="remember">Remember Me</mat-checkbox>
-  </ng-container>
-
-  <button mat-raised-button color="primary" class="mat-button-lg" [disabled]="!SignInFormGroup.valid" *ngIf="!Loading">
-    Sign In
-  </button>
-
-  <mat-spinner *ngIf="Loading"></mat-spinner>
-</form>
+        <div class="mt-10" fxLayout="column" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid" (click)="SignInHandler()">
+              Sign In
+          </button>
+          <div class="mt-10 full-width">
+          <mat-progress-bar *ngIf="Loading" mode="buffer"></mat-progress-bar>
+        </div>
+        </div>
+    </mat-card>
+  </form>
+</div>
