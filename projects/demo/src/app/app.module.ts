@@ -15,7 +15,12 @@ export const settings = FathymSharedModule.DefaultServiceSettings(environment);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [FathymSharedModule.forRoot(), BrowserModule, BrowserAnimationsModule, AppRoutingModule, LcuIdentityModule],
+  imports: [
+    FathymSharedModule.forRoot(),
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    LcuIdentityModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {
