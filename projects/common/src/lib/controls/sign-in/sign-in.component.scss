@@ -2,6 +2,9 @@
 
 // @include mat-core();
 
+$primary-complementary: #5270FF;
+$primary-complementary-font: #fff;
+
 .m-10 {
   margin: 10px;
 }
@@ -18,11 +21,29 @@
   margin-top: 10px;
 }
 
+.mb-10 {
+  margin-bottom: 10px;
+}
+
 .full-width {
   width: 100%;
 }
 
 .hide-password {
   cursor: pointer;
+}
+
+.title-container {
+  background-color: $primary-complementary;
+  color: $primary-complementary-font;
+}
+
+.icon-color {
+  color: $primary-complementary;
+}
+
+.custom.mat-card {
+  padding: 0;
+  margin: 0;
 }
 

@@ -13,24 +13,24 @@ export class SignInComponent implements OnInit {
   //  Fields
 
 /**
-   * Access Username field
+   * Access UsernameInput field
    */
-  public get FieldUsername(): AbstractControl {
-    return this.Form.get('fieldusername');
+  public get Username(): AbstractControl {
+      return this.Form.get('username');
   }
 
   /**
    * Access password field
    */
-  public get FieldPassword(): AbstractControl {
-    return this.Form.get('fieldpassword');
+  public get Password(): AbstractControl {
+    return this.Form.get('password');
   }
 
   /**
    * Access remember me field
    */
-  public get FieldRememberMe(): AbstractControl {
-    return this.Form.get('fieldrememberMe');
+  public get RememberMe(): AbstractControl {
+    return this.Form.get('rememberMe');
   }
 
   //  Properties
@@ -46,9 +46,14 @@ export class SignInComponent implements OnInit {
   public Form: FormGroup;
 
   /**
-   * Local property for username
+   * Local property for error
    */
-  protected _username: string;
+  protected _error: string;
+
+  /**
+   * Local property for loading
+   */
+  protected _loading: boolean;
 
   /**
    * Local property for remember me
@@ -56,14 +61,10 @@ export class SignInComponent implements OnInit {
   protected _rememberme: boolean;
 
   /**
-   * Local property for error
+   * Local property for username
    */
-  protected _error: string;
+  protected _username: string;
 
-  /**
-   * Input property to loading
-   */
-  @Input() public Loading: boolean;
 
   /**
    * Output event for signing in
@@ -76,11 +77,11 @@ export class SignInComponent implements OnInit {
   @Output() ForgotPassword: EventEmitter<string> = new EventEmitter<string>();
 
   @Input()
-  get Error(): string {
+  get ErrorInput(): string {
     return this._error;
   }
 
-  set Error(val: string) {
+  set ErrorInput(val: string) {
     if (!val) { return; }
     this._error = val;
   }
@@ -89,32 +90,45 @@ export class SignInComponent implements OnInit {
    * Input property for remember me
    */
   @Input()
-  get RememberMe(): boolean {
+  get RememberMeInput(): boolean {
     return this._rememberme;
   }
 
-  set RememberMe(val: boolean) {
+  set RememberMeInput(val: boolean) {
     if (!val) { return; }
     this._rememberme = val;
 
-    this.FieldUsername.setValue(val);
+    this.RememberMe.setValue(val);
   }
 
   /**
    * Input property for username
    */
   @Input()
-  get Username(): string {
+  get UsernameInput(): string {
     return this._username;
   }
 
-  set Username(val: string) {
+  set UsernameInput(val: string) {
     if (!val) { return; }
     this._username = val;
-
-    this.FieldRememberMe.setValue(val);
   }
 
+  /**
+   * Input property to loading
+   */
+  @Input()
+  get LoadingInput(): boolean {
+    return this._loading;
+  }
+
+  set LoadingInput(val: boolean) {
+    if (!val) { return; }
+
+    this._loading = val;
+
+    this.disableForm(val);
+  }
 
   //  Constructors
   constructor() {}
@@ -126,11 +140,12 @@ export class SignInComponent implements OnInit {
  */
   public ngOnInit() {
     this.Form = new FormGroup({
-      fieldusername: new FormControl('', {validators: Validators.required}),
-      fieldpassword: new FormControl('', {validators: Validators.required}),
-      fieldrememberMe: new FormControl('')
+      username: new FormControl('', {validators: Validators.required}),
+      password: new FormControl('', {validators: Validators.required}),
+      rememberMe: new FormControl(false)
     });
 
+    this.setInitialValues();
     this.onChanges();
   }
 
@@ -138,8 +153,12 @@ export class SignInComponent implements OnInit {
    * Listen for form changes
    */
   protected onChanges(): void {
+
     this.Form.valueChanges.subscribe(val => {
-      console.log(val);
+    });
+
+    this.Username.valueChanges.subscribe(val => {
+
     });
   }
 
@@ -149,6 +168,7 @@ export class SignInComponent implements OnInit {
    * Sign in handler
    */
   public SignInHandler() {
+  //  this.LoadingInput = true;
     const signIn: SignInModel = this.buildSignInModelFromForm();
     this.SignIn.emit(signIn);
   }
@@ -157,16 +177,41 @@ export class SignInComponent implements OnInit {
    * Forgot password handler
    */
   public ForgotPasswordHandler() {
-    console.log('forgot password');
-    this.ForgotPassword.emit(this.FieldUsername.value);
+    this.ForgotPassword.emit(this.Username.value);
   }
 
-  // // 	Helpers
+  // 	Helpers
+
+  /**
+   * Build sign in model
+   */
   protected buildSignInModelFromForm(): SignInModel {
     return {
-      Username: this.FieldUsername.value,
-      Password: this.FieldPassword.value,
-      RememberMe: !!this.FieldRememberMe.value
+
+      Username: this.Username.value,
+      Password: this.Password.value,
+      RememberMe: !!this.RememberMe.value
     };
+   }
+
+   /**
+    * Disable / enable form
+    * @param val toggle value
+    */
+   protected disableForm(val: boolean): void {
+    (val) ? this.Form.disable() : this.Form.enable();
+   }
+
+   /**
+    * Set initial values if input properties have values
+    */
+   protected setInitialValues(): void {
+    if (this._username) {
+      this.Username.setValue(this._username);
+    }
+
+    if (this._rememberme) {
+      this.RememberMe.setValue(this._rememberme);
+    }
    }
   }
