@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, SimpleChanges, OnChanges } from '@angular/core';
+import { ValidationPatternModel } from './register-validation-pattern.model';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, SimpleChanges, OnChanges, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Status } from '@lcu-ide/common';
+import { Status, PasswordValidator, ValidationMessages, UserNameValidator, EmailValidator } from '@lcu-ide/common';
 import { RegisterModel } from './register.model';
 
 @Component({
@@ -9,84 +10,274 @@ import { RegisterModel } from './register.model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnChanges, OnInit {
-  //  Fields
+export class RegisterComponent implements OnInit {
+
+  /**
+   * Access email field
+   */
+  public get Email(): AbstractControl {
+    return this.Form.get('email');
+  }
+
+  /**
+   * Access UsernameInput field
+   */
+  public get Username(): AbstractControl {
+    return this.Form.get('username');
+  }
+
+  /**
+   * Access password field
+   */
+  public get Password(): AbstractControl {
+    return this.Form.get('password');
+  }
+
+  /**
+   * Access confirm password field
+   */
+  public get ConfirmPassword(): AbstractControl {
+    return this.Form.get('confirmPassword');
+  }
 
   //  Properties
-  public Errors: string[];
 
-  public Loading: boolean;
+  /**
+   * Toggle to show / hide password value
+   */
+  public HidePassword: boolean = true;
 
-  public get Password() {
-    return this.RegisterFormGroup.get('password');
+  /**
+   * Toggle to show / hide password value
+   */
+  public HideConfirmPassword: boolean = true;
+
+  /**
+   * Sign in form group
+   */
+  public Form: FormGroup;
+
+  /**
+   * Form group for password controls
+   */
+  public PasswordControls: FormGroup;
+
+  /**
+   * Confirm password validation
+   */
+  public VMConfirmPassword: ValidationMessages = ValidationMessages.ConfirmPassword;
+
+  /**
+   * Email validation
+   */
+  public VMEmail: ValidationMessages = ValidationMessages.Email;
+
+  /**
+   * Password validation
+   */
+  public VMPassword: ValidationMessages = ValidationMessages.Password;
+
+  /**
+   * Username validation
+   */
+  public VMUsername: ValidationMessages = ValidationMessages.UserName;
+
+  /**
+   * Local property for error
+   */
+  protected _error: string;
+
+  /**
+   * Local property for loading
+   */
+  protected _loading: boolean;
+
+  /**
+   * Local property for remember me
+   */
+  protected _rememberme: boolean;
+
+  /**
+   * Local property for username
+   */
+  protected _username: string;
+
+  /**
+   * Local property for username validation config
+   */
+  protected _usernameValidationConfig: ValidationPatternModel;
+
+  /**
+   * Local property for email validation config
+   */
+  protected _emailValidationConfig: ValidationPatternModel;
+
+  /**
+   * Local property for password validation config
+   */
+  protected _passwordValidationConfig: ValidationPatternModel;
+
+  /**
+   * Output event for sign in
+   */
+  @Output() public SignIn: EventEmitter<any> = new EventEmitter<any>();
+
+  /**
+   * Output event for registration
+   */
+  @Output() public Register: EventEmitter<RegisterModel> = new EventEmitter<RegisterModel>();
+
+  /**
+   * Output event for registration error
+   */
+  @Output() public RegisterError: EventEmitter<Status> = new EventEmitter<Status>();
+
+  /**
+   * Input property for error
+   */
+  @Input()
+  get ErrorInput(): string {
+    return this._error;
   }
 
-  public get PasswordConfirmation() {
-    return this.RegisterFormGroup.get('passwordConfirmation');
+  set ErrorInput(val: string) {
+    if (!val) { return; }
+    this._error = val;
   }
 
-  @Output('register')
-  public Register: EventEmitter<RegisterModel> = new EventEmitter<RegisterModel>();
+  /**
+   * Input property for loading
+   */
+  @Input()
+  get LoadingInput(): boolean {
+    return this._loading;
+  }
 
-  public RegisterFormGroup: FormGroup;
+  set LoadingInput(val: boolean) {
+    if (!val) { return; }
 
-  @Output('error')
-  public RegisterError: EventEmitter<Status> = new EventEmitter<Status>();
+    this._loading = val;
 
-  @Input('username')
-  public Username: string;
+    this.disableForm(val);
+  }
 
-  public get UsernameControl() {
-    return this.RegisterFormGroup.get('username');
+  /**
+   * Input property for username validation config
+   */
+  @Input()
+  get UsernameValidationConfig(): ValidationPatternModel {
+    return this._usernameValidationConfig;
+  }
+
+  set UsernameValidationConfig(val: ValidationPatternModel) {
+    if (!val) { return; }
+
+    this._usernameValidationConfig = val;
+  }
+
+  /**
+   * Input property for email validation config
+   */
+  @Input()
+  get EmailValidationConfig(): ValidationPatternModel {
+    return this._emailValidationConfig;
+  }
+
+  set EmailValidationConfig(val: ValidationPatternModel) {
+    if (!val) { return; }
+
+    this._emailValidationConfig = val;
+  }
+
+  /**
+   * Input property for password validation config
+   */
+  @Input()
+  get PasswordValidationConfig(): ValidationPatternModel {
+    return this._passwordValidationConfig;
+  }
+
+  set PasswordValidationConfig(val: ValidationPatternModel) {
+    if (!val) { return; }
+
+    this._passwordValidationConfig = val;
   }
 
   //  Constructors
-  constructor(protected route: ActivatedRoute, protected formBldr: FormBuilder) {}
+  constructor() {}
 
-  //	Life Cycle
-  public ngOnChanges(_: SimpleChanges) {
-    if (_['Username']) {
-      if (this.RegisterFormGroup) {
-        this.RegisterFormGroup.controls.username.setValue(this.Username);
-      }
-    }
-  }
+  // 	Life Cycle
 
+ /**
+ * On init setup form and fields
+ */
   public ngOnInit() {
-    this.RegisterFormGroup = this.formBldr.group(
-      {
-        username: new FormControl(this.Username || '', [Validators.required, Validators.email]),
-        password: ['', (Validators.required, Validators.minLength(8))],
-        passwordConfirmation: ['', Validators.required]
-      },
-      { validator: this.passwordConfirming }
-    );
+
+    this.Form = new FormGroup({
+      username: new FormControl('', Validators.compose([Validators.required, Validators.pattern(this.UsernameValidationConfig.Pattern || UserNameValidator.UsernamePattern)])),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(EmailValidator.EmailPatternDomain)])),
+      terms: new FormControl(false, {validators: Validators.requiredTrue}),
+      password: new FormControl ('', Validators.compose([Validators.required, Validators.pattern(PasswordValidator.StrongPassword)])),
+      confirmPassword: new FormControl('', Validators.required)
+    });
+
+    this.Form.validator = PasswordValidator.PasswordsMatch(this.Password, this.ConfirmPassword);
+
+    this.onChanges();
   }
 
-  //	API Methods
+  /**
+   * Listen for form changes
+   */
+  protected onChanges(): void {
+
+    this.Form.valueChanges.subscribe(val => {
+    });
+
+    this.Username.valueChanges.subscribe(val => {
+
+    });
+  }
+
+  // 	API Methods
+
+  /**
+   * Sign in handler
+   */
+  public SignInHandler() {
+    this.SignIn.emit();
+  }
+
   public HandleRegister() {
-    this.Loading = true;
+    this.LoadingInput = true;
 
-    this.Errors = null;
+    // this.Errors = null;
 
-    var register = this.buildRegisterModelFromForm();
+    const register = this.buildRegisterModelFromForm();
 
     this.Register.emit(register);
   }
 
-  //	Helpers
+
+  // 	Helpers
+
+  /**
+   * Build registration model
+   */
   protected buildRegisterModelFromForm(): RegisterModel {
-    return {
-      Username: this.RegisterFormGroup.get('username').value,
-      Password: this.RegisterFormGroup.get('password').value
-    };
-  }
-
-  protected passwordConfirming(c: AbstractControl): { invalid: boolean } {
-    if (c.get('password').value !== c.get('passwordConfirmation').value) {
-      c.get('passwordConfirmation').setErrors({ noMatch: true });
-
-      return { invalid: true };
+      return {
+        Username: this.Username.value,
+        Password: this.Password.value
+      };
     }
+
+   /**
+    * Disable / enable form
+    * @param val toggle value
+    */
+   protected disableForm(val: boolean): void {
+    (val) ? this.Form.disable() : this.Form.enable();
+   }
   }
-}
+
+

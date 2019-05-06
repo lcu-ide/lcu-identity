@@ -1,0 +1,55 @@
+$primary-complementary: #5270FF;
+$primary-complementary-font: #fff;
+
+.m-10 {
+  margin: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hide-password {
+  cursor: pointer;
+}
+
+.title-container {
+  background-color: $primary-complementary;
+  color: $primary-complementary-font;
+}
+
+.icon-color {
+  color: $primary-complementary;
+}
+
+.custom.mat-card {
+  padding: 0;
+  margin: 0;
+}
+
+.error-message {
+  display: block;
+}
+
+.custom.mat-form-field-subscript-wrapper {
+  position: static;
+  }
+  .custom.mat-form-field-underline {
+  position: static;
+  }
