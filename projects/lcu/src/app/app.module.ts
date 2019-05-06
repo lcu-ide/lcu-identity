@@ -10,11 +10,10 @@ import {
   IdentityConfigManagerElementComponent,
   SELECTOR_IDENTITY_CONFIG_MANAGER_ELEMENT
 } from '@lcu-ide/lcu-identity-common';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [],
-  imports: [BrowserModule, BrowserAnimationsModule, FathymSharedModule, LcuIdentityModule],
+  imports: [BrowserAnimationsModule, FathymSharedModule, LcuIdentityModule],
   exports: [LcuIdentityModule]
 })
 export class AppModule implements DoBootstrap {
