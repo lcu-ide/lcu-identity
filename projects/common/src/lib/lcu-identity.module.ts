@@ -39,7 +39,7 @@ import { ForgotPasswordComponent } from './controls/forgot-password/forgot-passw
 import { FathymSharedModule } from '@lcu-ide/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IdentityConfigManagerElementComponent } from './elements/identity-config-manager-element/identity-config-manager-element.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent],
@@ -80,7 +80,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatExpansionModule,
     MatButtonToggleModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule
   ],
   exports: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent],
   entryComponents: [SignInComponent, RegisterComponent, ForgotPasswordComponent, IdentityConfigManagerElementComponent]
