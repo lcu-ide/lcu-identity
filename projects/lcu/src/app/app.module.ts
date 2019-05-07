@@ -1,5 +1,5 @@
 import { NgModule, DoBootstrap, Injector } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { createCustomElement } from '@angular/elements';
 import { FathymSharedModule } from '@lcu-ide/common';
 import {
@@ -14,7 +14,7 @@ import {
 
 @NgModule({
   declarations: [],
-  imports: [BrowserAnimationsModule, FathymSharedModule, LcuIdentityModule],
+  imports: [FathymSharedModule, LcuIdentityModule],
   exports: [LcuIdentityModule]
 })
 export class AppModule implements DoBootstrap {
