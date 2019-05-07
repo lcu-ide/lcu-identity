@@ -1,6 +1,8 @@
 <lcu-sign-in UsernameInput="pete" (SignIn)="SignIn($event)" (ForgotPassword)=ForgotPassword($event) [LoadingInput]="Loading"></lcu-sign-in>
 <br>
-<lcu-register [UsernameValidationConfig]="UsernameValidationConfig()" (register)="HandleRegister($event)"></lcu-register>
+<br>
+<br>
+<lcu-register [UsernameValidationConfig]="UsernameValidationConfig()" (Register)="HandleRegister($event)" (AlreadyRegistered)="AlreadyRegistered($event)"></lcu-register>
 
 <!-- <lcu-forgot-password></lcu-forgot-password> -->
 

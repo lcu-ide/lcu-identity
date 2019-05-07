@@ -18,7 +18,7 @@ export class AppComponent {
 
   public SignIn(evt: SignInModel): void {
    // this.Loading = true;
-    console.log('Sign in: ', evt);
+    alert('Sign in: ' + evt);
   }
 
   public ForgotPassword(evt: string): void {
@@ -30,5 +30,9 @@ export class AppComponent {
     config.Pattern = '^[a-z0-9]*$';
 
     return config;
+  }
+
+  public AlreadyRegistered(evt: boolean): void {
+    alert('Already a member');
   }
 }

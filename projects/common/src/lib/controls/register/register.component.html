@@ -96,11 +96,11 @@
 
           <div fxLayout="row" fxLayoutAlign="center center">
             <mat-slide-toggle color="primary" formControlName="terms" class="mr-10" required>Agree to Terms</mat-slide-toggle>
-            <button mat-button color="primary"(click)="SignInHandler()" class="ml-10">Already Registered? Login</button>
+            <button mat-button color="primary"(click)="CurrentMember()" class="ml-10">Already Registered? Login</button>
           </div>
 
           <div class="mt-10" fxLayout="column" fxLayoutAlign="center center">
-            <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid" (click)="SignInHandler()">
+            <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid" (click)="HandleRegister()">
                 Register
             </button>
             <div class="mt-10 full-width">

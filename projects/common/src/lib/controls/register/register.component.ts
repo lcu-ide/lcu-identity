@@ -118,6 +118,11 @@ export class RegisterComponent implements OnInit {
   protected _passwordValidationConfig: ValidationPatternModel;
 
   /**
+   * Output event for already registered
+   */
+  @Output() public AlreadyRegistered: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  /**
    * Output event for sign in
    */
   @Output() public SignIn: EventEmitter<any> = new EventEmitter<any>();
@@ -248,8 +253,15 @@ export class RegisterComponent implements OnInit {
     this.SignIn.emit();
   }
 
+  /**
+   * If user is already registered
+   */
+  public CurrentMember(): void {
+    this.AlreadyRegistered.emit(true);
+  }
+
   public HandleRegister() {
-    this.LoadingInput = true;
+   // this.LoadingInput = true;
 
     // this.Errors = null;
 

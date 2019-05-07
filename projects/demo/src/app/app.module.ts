@@ -1,5 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +15,6 @@ export const settings = FathymSharedModule.DefaultServiceSettings(environment);
   declarations: [AppComponent],
   imports: [
     FathymSharedModule.forRoot(),
-    BrowserAnimationsModule,
     AppRoutingModule,
     LcuIdentityModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
