@@ -15,29 +15,29 @@ export class RegisterComponent implements OnInit {
   /**
    * Access email field
    */
-  public get Email(): AbstractControl {
-    return this.Form.get('email');
+  public get EmailControl(): AbstractControl {
+    return this.Form.get('emailControl');
   }
 
   /**
    * Access UsernameInput field
    */
-  public get Username(): AbstractControl {
-    return this.Form.get('username');
+  public get UsernameControl(): AbstractControl {
+    return this.Form.get('usernameControl');
   }
 
   /**
    * Access password field
    */
-  public get Password(): AbstractControl {
-    return this.Form.get('password');
+  public get PasswordControl(): AbstractControl {
+    return this.Form.get('passwordControl');
   }
 
   /**
    * Access confirm password field
    */
-  public get ConfirmPassword(): AbstractControl {
-    return this.Form.get('confirmPassword');
+  public get ConfirmPasswordControl(): AbstractControl {
+    return this.Form.get('confirmPasswordControl');
   }
 
   //  Properties
@@ -141,11 +141,11 @@ export class RegisterComponent implements OnInit {
    * Input property for error
    */
   @Input()
-  get ErrorInput(): string {
+  get Error(): string {
     return this._error;
   }
 
-  set ErrorInput(val: string) {
+  set Error(val: string) {
     if (!val) { return; }
     this._error = val;
   }
@@ -154,11 +154,11 @@ export class RegisterComponent implements OnInit {
    * Input property for loading
    */
   @Input()
-  get LoadingInput(): boolean {
+  get Loading(): boolean {
     return this._loading;
   }
 
-  set LoadingInput(val: boolean) {
+  set Loading(val: boolean) {
     if (!val) { return; }
 
     this._loading = val;
@@ -219,14 +219,23 @@ export class RegisterComponent implements OnInit {
   public ngOnInit() {
 
     this.Form = new FormGroup({
-      username: new FormControl('', Validators.compose([Validators.required, Validators.pattern(this.UsernameValidationConfig.Pattern || UserNameValidator.UsernamePattern)])),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(EmailValidator.EmailPatternDomain)])),
-      terms: new FormControl(false, {validators: Validators.requiredTrue}),
-      password: new FormControl ('', Validators.compose([Validators.required, Validators.pattern(PasswordValidator.StrongPassword)])),
-      confirmPassword: new FormControl('', Validators.required)
+      usernameControl: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern(UserNameValidator.UsernamePattern)
+      ])),
+      emailControl: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern(EmailValidator.EmailPatternDomain)
+      ])),
+      termsControl: new FormControl(false, {validators: Validators.requiredTrue}),
+      passwordControl: new FormControl ('', Validators.compose([
+        Validators.required,
+        Validators.pattern(PasswordValidator.StrongPassword)
+      ])),
+      confirmPasswordControl: new FormControl('', Validators.required)
     });
 
-    this.Form.validator = PasswordValidator.PasswordsMatch(this.Password, this.ConfirmPassword);
+    this.Form.validator = PasswordValidator.PasswordsMatch(this.PasswordControl, this.ConfirmPasswordControl);
 
     this.onChanges();
   }
@@ -239,7 +248,7 @@ export class RegisterComponent implements OnInit {
     this.Form.valueChanges.subscribe(val => {
     });
 
-    this.Username.valueChanges.subscribe(val => {
+    this.UsernameControl.valueChanges.subscribe(val => {
 
     });
   }
@@ -270,7 +279,6 @@ export class RegisterComponent implements OnInit {
     this.Register.emit(register);
   }
 
-
   // 	Helpers
 
   /**
@@ -278,8 +286,8 @@ export class RegisterComponent implements OnInit {
    */
   protected buildRegisterModelFromForm(): RegisterModel {
       return {
-        Username: this.Username.value,
-        Password: this.Password.value
+        Username: this.UsernameControl.value,
+        Password: this.PasswordControl.value
       };
     }
 
@@ -289,6 +297,13 @@ export class RegisterComponent implements OnInit {
     */
    protected disableForm(val: boolean): void {
     (val) ? this.Form.disable() : this.Form.enable();
+   }
+
+   /**
+    * Handle registration errors
+    */
+   protected hasErrors(): void {
+
    }
   }
 
