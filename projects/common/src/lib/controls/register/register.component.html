@@ -1,51 +1,17 @@
-<!-- <form [formGroup]="RegisterFormGroup" (ngSubmit)="HandleRegister()">
-    <mat-form-field class="mat-full-width">
-        <input matInput placeholder="Email" formControlName="username" required />
-
-        <mat-hint align="end">Must be a valid email address</mat-hint>
-
-        <mat-error *ngIf="UsernameControl.errors && UsernameControl.errors.email">Username must be a valid email address</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="mat-full-width">
-        <input matInput type="password" placeholder="Password" formControlName="password" required />
-
-        <mat-hint align="end">Password must have a minimum of 8 characters, at least 6 unique characters, one uppercase, and one number.</mat-hint>
-
-        <mat-error *ngIf="Password.errors && Password.errors.minlength">Password must be at least 8 characters</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="mat-full-width">
-        <input matInput type="password" placeholder="Password Confirmation" formControlName="passwordConfirmation" required />
-
-        <mat-error *ngIf="PasswordConfirmation.hasError('noMatch')">Passwords do not match</mat-error>
-    </mat-form-field>
-
-    <h4 color="warn" *ngFor="let error of Errors">{{error}}</h4>
-
-    <div *ngIf="!Loading">
-        <button mat-raised-button color="primary" class="mat-button-lg" type="submit"> [disabled]="!RegisterFormGroup.valid"-->
-            <!-- Create New Account -->
-        <!-- </button>
-    </div>
-
-    <mat-spinner class="mat-centered" *ngIf="Loading"></mat-spinner>
-</form> -->
-
 <div fxFlex fxLayoutAlign="center center">
     <form [formGroup]="Form" validate="false" fxLayoutAlign="center center" fxLayout="column">
 
       <mat-card fxFlex fxLayoutAlign="start" fxLayout="column">
-          <mat-toolbar fxLayoutAlign="center center" class="title-container mb-10">
+          <!-- <mat-toolbar fxLayoutAlign="center center" class="title-container mb-10">
             <span>Register</span>
-          </mat-toolbar>
+          </mat-toolbar> -->
 
           <div fxLayout="row" fxLayoutAlign="start center">
             <mat-icon class="mr-10 icon-color">face</mat-icon>
             <mat-form-field class="full-width">
-              <input formControlName="username" matInput placeholder="Username" required>
+              <input formControlName="usernameControl" matInput placeholder="Username" required>
               <mat-error *ngFor="let validation of VMUsername">
-                  <mat-error *ngIf="Username.hasError(validation.Type) && Username.dirty || Username.touched">
+                  <mat-error *ngIf="UsernameControl.hasError(validation.Type) && UsernameControl.dirty || UsernameControl.touched">
                     <mat-error *ngIf="validation.Type === 'pattern'">
                         {{validation.Message}}
                     </mat-error>
@@ -57,9 +23,9 @@
           <div fxLayout="row" fxLayoutAlign="start center">
             <mat-icon class="mr-10 icon-color">email</mat-icon>
             <mat-form-field class="full-width">
-              <input formControlName="email" matInput placeholder="Email" required>
+              <input formControlName="emailControl" matInput placeholder="Email" required>
               <mat-error *ngFor="let validation of VMEmail">
-                  <mat-error *ngIf="Email.hasError(validation.Type) && Email.dirty || Email.touched">
+                  <mat-error *ngIf="EmailControl.hasError(validation.Type) && EmailControl.dirty || EmailControl.touched">
                     <mat-error *ngIf="validation.Type === 'pattern'">
                         {{validation.Message}}
                     </mat-error>
@@ -71,10 +37,10 @@
           <div fxLayout="row" fxLayoutAlign="start center">
             <mat-icon class="mr-10 icon-color">lock</mat-icon>
             <mat-form-field class="full-width">
-              <input matInput placeholder="Password" formControlName="password" [type]="HidePassword ? 'password' : 'text'" required>
+              <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required>
               <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password icon-color">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
               <mat-error *ngFor="let validation of VMPassword">
-                  <mat-error *ngIf="Password.hasError(validation.Type) && Password.dirty || Password.touched">
+                  <mat-error *ngIf="PasswordControl.hasError(validation.Type) && PasswordControl.dirty || PasswordControl.touched">
                     <mat-error *ngIf="validation.Type === 'pattern'">
                         {{validation.Message}}
                     </mat-error>
@@ -86,16 +52,16 @@
           <div fxLayout="row" fxLayoutAlign="start center">
             <mat-icon class="mr-10 icon-color">lock</mat-icon>
             <mat-form-field class="full-width">
-              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" [type]="HideConfirmPassword ? 'password' : 'text'" required>
+              <input matInput placeholder="Confirm Password" formControlName="confirmPasswordControl" [type]="HideConfirmPassword ? 'password' : 'text'" required>
               <mat-icon matSuffix (click)="HideConfirmPassword = !HideConfirmPassword" class="hide-password icon-color">{{HideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
               <mat-error *ngFor="let validation of VMConfirmPassword">
-                  <mat-error *ngIf="ConfirmPassword.hasError(validation.Type) && (ConfirmPassword.dirty || ConfirmPassword.touched)">{{validation.Message}}</mat-error>
+                  <mat-error *ngIf="ConfirmPasswordControl.hasError(validation.Type) && (ConfirmPasswordControl.dirty || ConfirmPasswordControl.touched)">{{validation.Message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </div>
 
           <div fxLayout="row" fxLayoutAlign="center center">
-            <mat-slide-toggle color="primary" formControlName="terms" class="mr-10" required>Agree to Terms</mat-slide-toggle>
+            <mat-slide-toggle color="primary" formControlName="termsControl" class="mr-10" required>Agree to Terms</mat-slide-toggle>
             <button mat-button color="primary"(click)="CurrentMember()" class="ml-10">Already Registered? Login</button>
           </div>
 
@@ -104,7 +70,7 @@
                 Register
             </button>
             <div class="mt-10 full-width">
-            <mat-progress-bar *ngIf="LoadingInput" mode="buffer"></mat-progress-bar>
+            <mat-progress-bar *ngIf="Loading" mode="buffer"></mat-progress-bar>
           </div>
           </div>
       </mat-card>

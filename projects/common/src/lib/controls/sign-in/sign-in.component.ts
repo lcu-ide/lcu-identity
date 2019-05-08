@@ -15,22 +15,22 @@ export class SignInComponent implements OnInit {
 /**
    * Access UsernameInput field
    */
-  public get Username(): AbstractControl {
-      return this.Form.get('username');
+  public get UsernameControl(): AbstractControl {
+      return this.Form.get('usernameControl');
   }
 
   /**
    * Access password field
    */
-  public get Password(): AbstractControl {
-    return this.Form.get('password');
+  public get PasswordControl(): AbstractControl {
+    return this.Form.get('passwordControl');
   }
 
   /**
    * Access remember me field
    */
-  public get RememberMe(): AbstractControl {
-    return this.Form.get('rememberMe');
+  public get RememberMeControl(): AbstractControl {
+    return this.Form.get('rememberMeControl');
   }
 
   //  Properties
@@ -77,11 +77,11 @@ export class SignInComponent implements OnInit {
   @Output() ForgotPassword: EventEmitter<string> = new EventEmitter<string>();
 
   @Input()
-  get ErrorInput(): string {
+  get Error(): string {
     return this._error;
   }
 
-  set ErrorInput(val: string) {
+  set Error(val: string) {
     if (!val) { return; }
     this._error = val;
   }
@@ -90,26 +90,26 @@ export class SignInComponent implements OnInit {
    * Input property for remember me
    */
   @Input()
-  get RememberMeInput(): boolean {
+  get RememberMe(): boolean {
     return this._rememberme;
   }
 
-  set RememberMeInput(val: boolean) {
+  set RememberMe(val: boolean) {
     if (!val) { return; }
     this._rememberme = val;
 
-    this.RememberMe.setValue(val);
+    this.RememberMeControl.setValue(val);
   }
 
   /**
    * Input property for username
    */
   @Input()
-  get UsernameInput(): string {
+  get Username(): string {
     return this._username;
   }
 
-  set UsernameInput(val: string) {
+  set Username(val: string) {
     if (!val) { return; }
     this._username = val;
   }
@@ -118,11 +118,11 @@ export class SignInComponent implements OnInit {
    * Input property to loading
    */
   @Input()
-  get LoadingInput(): boolean {
+  get Loading(): boolean {
     return this._loading;
   }
 
-  set LoadingInput(val: boolean) {
+  set Loading(val: boolean) {
     if (!val) { return; }
 
     this._loading = val;
@@ -140,9 +140,9 @@ export class SignInComponent implements OnInit {
  */
   public ngOnInit() {
     this.Form = new FormGroup({
-      username: new FormControl('', {validators: Validators.required}),
-      password: new FormControl('', {validators: Validators.required}),
-      rememberMe: new FormControl(false)
+      usernameControl: new FormControl('', {validators: Validators.required}),
+      passwordControl: new FormControl('', {validators: Validators.required}),
+      rememberMeControl: new FormControl(false)
     });
 
     this.setInitialValues();
@@ -157,7 +157,7 @@ export class SignInComponent implements OnInit {
     this.Form.valueChanges.subscribe(val => {
     });
 
-    this.Username.valueChanges.subscribe(val => {
+    this.UsernameControl.valueChanges.subscribe(val => {
 
     });
   }
@@ -168,7 +168,6 @@ export class SignInComponent implements OnInit {
    * Sign in handler
    */
   public SignInHandler() {
-  //  this.LoadingInput = true;
     const signIn: SignInModel = this.buildSignInModelFromForm();
     this.SignIn.emit(signIn);
   }
@@ -177,7 +176,7 @@ export class SignInComponent implements OnInit {
    * Forgot password handler
    */
   public ForgotPasswordHandler() {
-    this.ForgotPassword.emit(this.Username.value);
+    this.ForgotPassword.emit(this.UsernameControl.value);
   }
 
   // 	Helpers
@@ -188,9 +187,9 @@ export class SignInComponent implements OnInit {
   protected buildSignInModelFromForm(): SignInModel {
     return {
 
-      Username: this.Username.value,
-      Password: this.Password.value,
-      RememberMe: !!this.RememberMe.value
+      Username: this.UsernameControl.value,
+      Password: this.PasswordControl.value,
+      RememberMe: !!this.RememberMeControl.value
     };
    }
 
@@ -207,11 +206,11 @@ export class SignInComponent implements OnInit {
     */
    protected setInitialValues(): void {
     if (this._username) {
-      this.Username.setValue(this._username);
+      this.UsernameControl.setValue(this._username);
     }
 
     if (this._rememberme) {
-      this.RememberMe.setValue(this._rememberme);
+      this.RememberMeControl.setValue(this._rememberme);
     }
    }
   }

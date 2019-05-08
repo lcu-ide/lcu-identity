@@ -2,35 +2,35 @@
   <form [formGroup]="Form" fxLayoutAlign="center center" fxLayout="column">
 
     <mat-card fxFlex fxLayoutAlign="start" fxLayout="column">
-        <mat-toolbar fxLayoutAlign="center center" class="title-container mb-10">
+        <!-- <mat-toolbar fxLayoutAlign="center center" class="title-container mb-10">
           <span>Sign In</span>
-        </mat-toolbar>
+        </mat-toolbar> -->
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">face</mat-icon>
           <mat-form-field class="full-width">
-            <input formControlName="username" matInput placeholder="Username" required>
+            <input formControlName="usernameControl" matInput placeholder="Username" required>
           </mat-form-field>
         </div>
 
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">lock</mat-icon>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Password" formControlName="password" [type]="HidePassword ? 'password' : 'text'" required>
+            <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required>
             <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password icon-color">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>
 
         <div fxLayout="row" fxLayoutAlign="center center">
-          <mat-slide-toggle color="primary" formControlName="rememberMe" class="mr-10">Remember Me</mat-slide-toggle>
+          <mat-slide-toggle color="primary" formControlName="rememberMeControl" class="mr-10">Remember Me</mat-slide-toggle>
           <button mat-button color="primary"(click)="ForgotPasswordHandler()" class="ml-10">Forgot password?</button>
         </div>
 
         <div class="mt-10" fxLayout="column" fxLayoutAlign="center center">
-          <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid || LoadingInput" (click)="SignInHandler()">
+          <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid || Loading" (click)="SignInHandler()">
               Sign In
           </button>
           <div class="mt-10 full-width">
-          <mat-progress-bar *ngIf="LoadingInput" mode="buffer"></mat-progress-bar>
+          <mat-progress-bar *ngIf="Loading" mode="buffer"></mat-progress-bar>
         </div>
         </div>
     </mat-card>
