@@ -223,6 +223,8 @@ export class SignInComponent implements OnInit {
 
    /**
     * Handle registration errors
+    * 
+    * @param val error message
     */
    protected hasError(val: string): void {
     this.LoginError = val;
