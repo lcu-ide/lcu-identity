@@ -301,6 +301,8 @@ export class RegisterComponent implements OnInit {
     * @param val toggle value
     */
    protected disableForm(val: boolean): void {
+     if (!this.Form) { return; }
+     
     (val) ? this.Form.disable() : this.Form.enable();
    }
 
