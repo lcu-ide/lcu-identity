@@ -22,9 +22,9 @@ export class RegisterComponent implements OnInit {
   /**
    * Access UsernameInput field
    */
-  public get UsernameControl(): AbstractControl {
-    return this.Form.get('usernameControl');
-  }
+  // public get UsernameControl(): AbstractControl {
+  //   return this.Form.get('usernameControl');
+  // }
 
   /**
    * Access password field
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
   /**
    * Username validation
    */
-  public VMUsername: ValidationMessages = ValidationMessages.UserName;
+  // public VMUsername: ValidationMessages = ValidationMessages.UserName;
 
   /**
    * Local property for error
@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
   /**
    * Local property for username validation config
    */
-  protected _usernameValidationConfig: ValidationPatternModel;
+  // protected _usernameValidationConfig: ValidationPatternModel;
 
   /**
    * Local property for email validation config
@@ -169,10 +169,10 @@ export class RegisterComponent implements OnInit {
   /**
    * Input property for username validation config
    */
-  @Input()
-  get UsernameValidationConfig(): ValidationPatternModel {
-    return this._usernameValidationConfig;
-  }
+  // @Input()
+  // get UsernameValidationConfig(): ValidationPatternModel {
+  //   return this._usernameValidationConfig;
+  // }
 
   set UsernameValidationConfig(val: ValidationPatternModel) {
     if (!val) { return; }
@@ -224,10 +224,10 @@ export class RegisterComponent implements OnInit {
   public ngOnInit() {
 
     this.Form = new FormGroup({
-      usernameControl: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern(UserNameValidator.UsernamePattern)
-      ])),
+      // usernameControl: new FormControl('', Validators.compose([
+      //   Validators.required,
+      //   Validators.pattern(UserNameValidator.UsernamePattern)
+      // ])),
       emailControl: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern(EmailValidator.EmailPatternDomain)
@@ -251,10 +251,6 @@ export class RegisterComponent implements OnInit {
   protected onChanges(): void {
 
     this.Form.valueChanges.subscribe(val => {
-    });
-
-    this.UsernameControl.valueChanges.subscribe(val => {
-
     });
   }
 
@@ -291,7 +287,8 @@ export class RegisterComponent implements OnInit {
    */
   protected buildRegisterModelFromForm(): RegisterModel {
       return {
-        Username: this.UsernameControl.value,
+        // need to pass email as username right now
+        Username: this.EmailControl.value,
         Password: this.PasswordControl.value
       };
     }
