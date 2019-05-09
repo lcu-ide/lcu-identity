@@ -8,14 +8,14 @@
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">face</mat-icon>
           <mat-form-field class="full-width">
-            <input formControlName="usernameControl" matInput placeholder="Username" required>
+            <input formControlName="usernameControl" matInput placeholder="Username" required autocomplete="off">
           </mat-form-field>
         </div>
 
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">lock</mat-icon>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required>
+            <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required autocomplete="off">
             <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password icon-color">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>
