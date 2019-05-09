@@ -174,11 +174,11 @@ export class RegisterComponent implements OnInit {
   //   return this._usernameValidationConfig;
   // }
 
-  set UsernameValidationConfig(val: ValidationPatternModel) {
-    if (!val) { return; }
+  // set UsernameValidationConfig(val: ValidationPatternModel) {
+  //   if (!val) { return; }
 
-    this._usernameValidationConfig = val;
-  }
+  //   this._usernameValidationConfig = val;
+  // }
 
   /**
    * Input property for email validation config
