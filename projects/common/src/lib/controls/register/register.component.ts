@@ -208,6 +208,11 @@ export class RegisterComponent implements OnInit {
     this._passwordValidationConfig = val;
   }
 
+  public readonly StrongPassword: string = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d)[A-Za-z\d!$%@#£€*?&]{8,}$';
+  public readonly LettersNumbers: string ='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$';
+  // public readonly StrongPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}$)/gm
+  // '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'
+
   //  Constructors
   constructor() {}
 
