@@ -46,6 +46,11 @@ export class SignInComponent implements OnInit {
   public Form: FormGroup;
 
   /**
+   * Registration error
+   */
+  public LoginError: string;
+
+  /**
    * Local property for error
    */
   protected _error: string;
@@ -84,6 +89,8 @@ export class SignInComponent implements OnInit {
   set Error(val: string) {
     if (!val) { return; }
     this._error = val;
+
+    this.hasError(val);
   }
 
   /**
@@ -212,5 +219,12 @@ export class SignInComponent implements OnInit {
     if (this._rememberme) {
       this.RememberMeControl.setValue(this._rememberme);
     }
+   }
+
+   /**
+    * Handle registration errors
+    */
+   protected hasError(val: string): void {
+    this.LoginError = val;
    }
   }

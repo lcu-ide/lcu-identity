@@ -5,17 +5,22 @@
         <!-- <mat-toolbar fxLayoutAlign="center center" class="title-container mb-10">
           <span>Sign In</span>
         </mat-toolbar> -->
+        <div *ngIf="LoginError" fxLayout="row" fxLayoutAlign="center center">
+          <mat-error>
+            {{ LoginError }}
+          </mat-error>
+        </div>
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">face</mat-icon>
           <mat-form-field class="full-width">
-            <input formControlName="usernameControl" matInput placeholder="Username" required autocomplete="off">
+            <input formControlName="usernameControl" matInput placeholder="Username" required>
           </mat-form-field>
         </div>
 
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-icon class="mr-10 icon-color">lock</mat-icon>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required autocomplete="off">
+            <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required>
             <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password icon-color">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>

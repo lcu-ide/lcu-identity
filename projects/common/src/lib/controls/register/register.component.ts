@@ -63,6 +63,11 @@ export class RegisterComponent implements OnInit {
   public PasswordControls: FormGroup;
 
   /**
+   * Registration error
+   */
+  public RegistrationError: string;
+
+  /**
    * Confirm password validation
    */
   public VMConfirmPassword: ValidationMessages = ValidationMessages.ConfirmPassword;
@@ -148,6 +153,8 @@ export class RegisterComponent implements OnInit {
   set Error(val: string) {
     if (!val) { return; }
     this._error = val;
+
+    this.hasError(val);
   }
 
   /**
@@ -207,11 +214,6 @@ export class RegisterComponent implements OnInit {
 
     this._passwordValidationConfig = val;
   }
-
-  public readonly StrongPassword: string = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d)[A-Za-z\d!$%@#£€*?&]{8,}$';
-  public readonly LettersNumbers: string ='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$';
-  // public readonly StrongPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}$)/gm
-  // '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'
 
   //  Constructors
   constructor() {}
@@ -299,15 +301,15 @@ export class RegisterComponent implements OnInit {
     */
    protected disableForm(val: boolean): void {
      if (!this.Form) { return; }
-     
+
     (val) ? this.Form.disable() : this.Form.enable();
    }
 
    /**
     * Handle registration errors
     */
-   protected hasErrors(): void {
-
+   protected hasError(val: string): void {
+    this.RegistrationError = val;
    }
   }
 
