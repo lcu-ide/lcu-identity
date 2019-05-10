@@ -19,7 +19,10 @@
               </mat-error>
             </mat-form-field>
           </div> -->
-          <div *ngIf="RegistrationError?.length > 0" fxLayout="row" fxLayoutAlign="center center">
+          <div *ngIf="RegistrationError?.length > 0 && 
+            (EmailControl.dirty || EmailControl.touched) && 
+            (PasswordControl.dirty || PasswordControl.touched) &&
+            (ConfirmPasswordControl.dirty || ConfirmPasswordControl.touched)" fxLayout="row" fxLayoutAlign="center center">
             <mat-error>
               {{ RegistrationError }}
             </mat-error>
