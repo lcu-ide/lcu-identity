@@ -302,7 +302,14 @@ export class RegisterComponent implements OnInit {
    protected disableForm(val: boolean): void {
      if (!this.Form) { return; }
 
-    (val) ? this.Form.disable() : this.Form.enable();
+     if (val === true) {
+      this.Form.disable();
+     } else {
+      this.Form.enable();
+     }
+     console.log('Form is disabled: ', val);
+
+     //(val) ? this.Form.disable() : this.Form.enable();
    }
 
    /**
