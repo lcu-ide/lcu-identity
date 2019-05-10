@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, OnCh
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { BaseModeledResponse, Status } from '@lcu-ide/common';
 import { SignInModel } from './sign-in.model';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'lcu-sign-in',
@@ -132,9 +133,9 @@ export class SignInComponent implements OnInit {
   set Loading(val: boolean) {
     if (!val) { return; }
 
-    this._loading = val;
+    this._loading = coerceBooleanProperty(val);
 
-    this.disableForm(val);
+    this.disableForm(this._loading);
   }
 
   //  Constructors

@@ -1,9 +1,11 @@
-import { ValidationPatternModel } from './register-validation-pattern.model';
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, SimpleChanges, OnChanges, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import {coerceBooleanProperty} from '@angular/cdk/coercion';
 import { Status, PasswordValidator, ValidationMessages, UserNameValidator, EmailValidator } from '@lcu-ide/common';
 import { RegisterModel } from './register.model';
+import { ValidationPatternModel } from './register-validation-pattern.model';
+
 
 @Component({
   selector: 'lcu-register',
@@ -168,9 +170,9 @@ export class RegisterComponent implements OnInit {
   set Loading(val: boolean) {
     if (!val) { return; }
 
-    this._loading = val;
+    this._loading = coerceBooleanProperty(val);
 
-    this.disableForm(val);
+    this.disableForm(this._loading);
   }
 
   /**
