@@ -19,17 +19,14 @@
               </mat-error>
             </mat-form-field>
           </div> -->
-          <div *ngIf="RegistrationError?.length > 0 && 
-            (EmailControl.dirty || EmailControl.touched) && 
-            (PasswordControl.dirty || PasswordControl.touched) &&
-            (ConfirmPasswordControl.dirty || ConfirmPasswordControl.touched)" fxLayout="row" fxLayoutAlign="center center">
+          <div *ngIf="RegisterError?.length > 0" fxLayout="row" fxLayoutAlign="center center">
             <mat-error>
-              {{ RegistrationError }}
+              {{ RegisterError }}
             </mat-error>
           </div>
 
           <div fxLayout="row" fxLayoutAlign="start center">
-            <mat-icon class="mr-10 icon-color">email</mat-icon>
+            <mat-icon class="mr-10" color="accent">email</mat-icon>
             <mat-form-field class="full-width">
               <input formControlName="emailControl" matInput placeholder="Email" required>
               <mat-error *ngFor="let validation of VMEmail">
@@ -43,7 +40,7 @@
           </div>
 
           <div fxLayout="row" fxLayoutAlign="start center">
-            <mat-icon class="mr-10 icon-color">lock</mat-icon>
+            <mat-icon class="mr-10" color="accent">lock</mat-icon>
             <mat-form-field class="full-width">
               <input matInput placeholder="Password" formControlName="passwordControl" [type]="HidePassword ? 'password' : 'text'" required>
               <mat-icon matSuffix (click)="HidePassword = !HidePassword" class="hide-password icon-color">{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -58,7 +55,7 @@
           </div>
 
           <div fxLayout="row" fxLayoutAlign="start center">
-            <mat-icon class="mr-10 icon-color">lock</mat-icon>
+            <mat-icon class="mr-10" color="accent">lock</mat-icon>
             <mat-form-field class="full-width">
               <input matInput placeholder="Confirm Password" formControlName="confirmPasswordControl" [type]="HideConfirmPassword ? 'password' : 'text'" required>
               <mat-icon matSuffix (click)="HideConfirmPassword = !HideConfirmPassword" class="hide-password icon-color">{{HideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
