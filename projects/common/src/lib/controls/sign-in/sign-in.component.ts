@@ -12,46 +12,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 })
 export class SignInComponent implements OnInit {
   //  Fields
-
-/**
-   * Access UsernameInput field
-   */
-  public get UsernameControl(): AbstractControl {
-      return this.Form.get('usernameControl');
-  }
-
-  /**
-   * Access password field
-   */
-  public get PasswordControl(): AbstractControl {
-    return this.Form.get('passwordControl');
-  }
-
-  /**
-   * Access remember me field
-   */
-  public get RememberMeControl(): AbstractControl {
-    return this.Form.get('rememberMeControl');
-  }
-
-  //  Properties
-
-  /**
-   * Toggle to show / hide password value
-   */
-  public HidePassword: boolean = true;
-
  /**
-   * Sign in form group
-   */
-  public Form: FormGroup;
-
-  /**
-   * Registration error
-   */
-  public LoginError: string;
-
-  /**
    * Local property for error
    */
   protected _error: string;
@@ -71,18 +32,59 @@ export class SignInComponent implements OnInit {
    */
   protected _username: string;
 
+  //  Properties
+
+  /**
+   * Access UsernameInput field
+   */
+    public get UsernameControl(): AbstractControl {
+      return this.Form.get('usernameControl');
+  }
+
+  /**
+   * Access password field
+   */
+  public get PasswordControl(): AbstractControl {
+    return this.Form.get('passwordControl');
+  }
+
+  /**
+   * Access remember me field
+   */
+  public get RememberMeControl(): AbstractControl {
+    return this.Form.get('rememberMeControl');
+  }
+
+  /**
+   * Toggle to show / hide password value
+   */
+  public HidePassword: boolean;
+
+ /**
+   * Sign in form group
+   */
+  public Form: FormGroup;
+
+  /**
+   * Registration error
+   */
+  public LoginError: string;
 
   /**
    * Output event for signing in
    */
-  @Output() SignIn: EventEmitter<SignInModel> = new EventEmitter<SignInModel>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('sign-in')
+  SignIn: EventEmitter<SignInModel>;
 
   /**
    * Output event for forgot password
    */
-  @Output() ForgotPassword: EventEmitter<string> = new EventEmitter<string>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('forgot-password')
+  ForgotPassword: EventEmitter<string>;
 
-  @Input()
+  @Input('error')
   get Error(): string {
     return this._error;
   }
@@ -97,7 +99,7 @@ export class SignInComponent implements OnInit {
   /**
    * Input property for remember me
    */
-  @Input()
+  @Input('rememberMe')
   get RememberMe(): boolean {
     return this._rememberme;
   }
@@ -112,7 +114,7 @@ export class SignInComponent implements OnInit {
   /**
    * Input property for username
    */
-  @Input()
+  @Input('username')
   get Username(): string {
     return this._username;
   }
@@ -125,7 +127,7 @@ export class SignInComponent implements OnInit {
   /**
    * Input property to loading
    */
-  @Input()
+  @Input('loading')
   get Loading(): boolean {
     return this._loading;
   }
@@ -139,7 +141,13 @@ export class SignInComponent implements OnInit {
   }
 
   //  Constructors
-  constructor() {}
+  constructor() {
+    this.HidePassword = true;
+
+   this.SignIn = new EventEmitter<SignInModel>();
+
+   this.ForgotPassword = new EventEmitter<string>();
+  }
 
   // 	Life Cycle
 
@@ -155,19 +163,6 @@ export class SignInComponent implements OnInit {
 
     this.setInitialValues();
     this.onChanges();
-  }
-
-  /**
-   * Listen for form changes
-   */
-  protected onChanges(): void {
-
-    this.Form.valueChanges.subscribe(val => {
-    });
-
-    this.UsernameControl.valueChanges.subscribe(val => {
-
-    });
   }
 
   // 	API Methods
@@ -188,6 +183,19 @@ export class SignInComponent implements OnInit {
   }
 
   // 	Helpers
+
+  /**
+   * Listen for form changes
+   */
+  protected onChanges(): void {
+
+    this.Form.valueChanges.subscribe(val => {
+    });
+
+    this.UsernameControl.valueChanges.subscribe(val => {
+
+    });
+  }
 
   /**
    * Build sign in model

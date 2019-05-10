@@ -13,81 +13,7 @@ import { ValidationPatternModel } from './register-validation-pattern.model';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
-  /**
-   * Access email field
-   */
-  public get EmailControl(): AbstractControl {
-    return this.Form.get('emailControl');
-  }
-
-  /**
-   * Access UsernameInput field
-   */
-  // public get UsernameControl(): AbstractControl {
-  //   return this.Form.get('usernameControl');
-  // }
-
-  /**
-   * Access password field
-   */
-  public get PasswordControl(): AbstractControl {
-    return this.Form.get('passwordControl');
-  }
-
-  /**
-   * Access confirm password field
-   */
-  public get ConfirmPasswordControl(): AbstractControl {
-    return this.Form.get('confirmPasswordControl');
-  }
-
-  //  Properties
-
-  /**
-   * Toggle to show / hide password value
-   */
-  public HidePassword: boolean = true;
-
-  /**
-   * Toggle to show / hide password value
-   */
-  public HideConfirmPassword: boolean = true;
-
-  /**
-   * Sign in form group
-   */
-  public Form: FormGroup;
-
-  /**
-   * Form group for password controls
-   */
-  public PasswordControls: FormGroup;
-
-  /**
-   * Registration error
-   */
-  public RegistrationError: string;
-
-  /**
-   * Confirm password validation
-   */
-  public VMConfirmPassword: ValidationMessages = ValidationMessages.ConfirmPassword;
-
-  /**
-   * Email validation
-   */
-  public VMEmail: ValidationMessages = ValidationMessages.Email;
-
-  /**
-   * Password validation
-   */
-  public VMPassword: ValidationMessages = ValidationMessages.Password;
-
-  /**
-   * Username validation
-   */
-  // public VMUsername: ValidationMessages = ValidationMessages.UserName;
+  // Fields
 
   /**
    * Local property for error
@@ -124,35 +50,118 @@ export class RegisterComponent implements OnInit {
    */
   protected _passwordValidationConfig: ValidationPatternModel;
 
+  //  Properties
+
+ /**
+ * Access email field
+ */
+  public get EmailControl(): AbstractControl {
+    return this.Form.get('emailControl');
+  }
+
+  /**
+   * Access UsernameInput field
+   */
+  // public get UsernameControl(): AbstractControl {
+  //   return this.Form.get('usernameControl');
+  // }
+
+  /**
+   * Access password field
+   */
+  public get PasswordControl(): AbstractControl {
+    return this.Form.get('passwordControl');
+  }
+
+  /**
+   * Access confirm password field
+   */
+  public get ConfirmPasswordControl(): AbstractControl {
+    return this.Form.get('confirmPasswordControl');
+  }
+
+  /**
+   * Toggle to show / hide password value
+   */
+  public HidePassword: boolean = true;
+
+  /**
+   * Toggle to show / hide password value
+   */
+  public HideConfirmPassword: boolean = true;
+
+  /**
+   * Sign in form group
+   */
+  public Form: FormGroup;
+
+  /**
+   * Form group for password controls
+   */
+  public PasswordControls: FormGroup;
+
+  /**
+   * Registration error
+   */
+  public RegisterError: string;
+
+  /**
+   * Confirm password validation
+   */
+  public VMConfirmPassword: ValidationMessages = ValidationMessages.ConfirmPassword;
+
+  /**
+   * Email validation
+   */
+  public VMEmail: ValidationMessages = ValidationMessages.Email;
+
+  /**
+   * Password validation
+   */
+  public VMPassword: ValidationMessages = ValidationMessages.Password;
+
+  /**
+   * Username validation
+   */
+  // public VMUsername: ValidationMessages = ValidationMessages.UserName;
+
   /**
    * Output event for already registered
    */
-  @Output() public AlreadyRegistered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('already-registered')
+  public AlreadyRegistered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
    * Output event for sign in
    */
-  @Output() public SignIn: EventEmitter<any> = new EventEmitter<any>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('sign-in')
+  public SignIn: EventEmitter<any> = new EventEmitter<any>();
 
   /**
    * Output event for registration
    */
-  @Output() public Register: EventEmitter<RegisterModel> = new EventEmitter<RegisterModel>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('register')
+  public Register: EventEmitter<RegisterModel> = new EventEmitter<RegisterModel>();
 
   /**
    * Output event for registration error
    */
-  @Output() public RegisterError: EventEmitter<Status> = new EventEmitter<Status>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('registration-error')
+  public RegistrationError: EventEmitter<Status> = new EventEmitter<Status>();
 
   /**
    * Input property for error
    */
-  @Input()
-  get Error(): string {
+  @Input('error')
+  public get Error(): string {
     return this._error;
   }
 
-  set Error(val: string) {
+  public set Error(val: string) {
     if (!val) { return; }
     this._error = val;
 
@@ -162,12 +171,12 @@ export class RegisterComponent implements OnInit {
   /**
    * Input property for loading
    */
-  @Input()
-  get Loading(): boolean {
+  @Input('loading')
+  public get Loading(): boolean {
     return this._loading;
   }
 
-  set Loading(val: boolean) {
+  public set Loading(val: boolean) {
     if (!val) { return; }
 
     this._loading = coerceBooleanProperty(val);
@@ -192,7 +201,7 @@ export class RegisterComponent implements OnInit {
   /**
    * Input property for email validation config
    */
-  @Input()
+  @Input('emailValidationConfig')
   get EmailValidationConfig(): ValidationPatternModel {
     return this._emailValidationConfig;
   }
@@ -206,7 +215,7 @@ export class RegisterComponent implements OnInit {
   /**
    * Input property for password validation config
    */
-  @Input()
+  @Input('passwordValidationConfig')
   get PasswordValidationConfig(): ValidationPatternModel {
     return this._passwordValidationConfig;
   }
@@ -218,7 +227,15 @@ export class RegisterComponent implements OnInit {
   }
 
   //  Constructors
-  constructor() {}
+  constructor() {
+    this.AlreadyRegistered = new EventEmitter<boolean>();
+
+    this.SignIn = new EventEmitter<any>();
+
+    this.Register = new EventEmitter<RegisterModel>();
+
+    this.RegistrationError = new EventEmitter<Status>();
+  }
 
   // 	Life Cycle
 
@@ -320,7 +337,7 @@ export class RegisterComponent implements OnInit {
     * @param val error message
     */
    protected hasError(val: string): void {
-    this.RegistrationError = val;
+    this.RegisterError = val;
    }
   }
 
