@@ -198,8 +198,6 @@ export class RegisterComponent implements OnInit {
   }
 
   public set Success(val: boolean) {
-    if (!val) { return; }
-
     this._success = val;
     this.resetForm();
   }
