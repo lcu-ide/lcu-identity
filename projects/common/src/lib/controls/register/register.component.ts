@@ -364,6 +364,7 @@ export class RegisterComponent implements OnInit {
     * Clear form
     */
    protected resetForm(): void {
+     if (!this.Form) { return; }
      this.Form.reset();
    }
   }
