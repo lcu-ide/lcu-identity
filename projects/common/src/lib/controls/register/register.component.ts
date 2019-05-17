@@ -50,6 +50,11 @@ export class RegisterComponent implements OnInit {
    */
   protected _passwordValidationConfig: ValidationPatternModel;
 
+  /**
+   * Local property for successful registration
+   */
+  protected _success: boolean;
+
   //  Properties
 
  /**
@@ -182,6 +187,21 @@ export class RegisterComponent implements OnInit {
     this._loading = coerceBooleanProperty(val);
 
     this.disableForm(this._loading);
+  }
+
+  /**
+   * Input property for successful registration
+   */
+  @Input('success')
+  public get Success(): boolean {
+    return this._success;
+  }
+
+  public set Success(val: boolean) {
+    if (!val) { return; }
+
+    this._success = val;
+    this.resetForm();
   }
 
   /**
@@ -338,6 +358,13 @@ export class RegisterComponent implements OnInit {
     */
    protected hasError(val: string): void {
     this.RegisterError = val;
+   }
+
+   /**
+    * Clear form
+    */
+   protected resetForm(): void {
+     this.Form.reset();
    }
   }
 

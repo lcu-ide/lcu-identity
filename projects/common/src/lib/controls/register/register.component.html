@@ -20,8 +20,14 @@
             </mat-form-field>
           </div> -->
           <div *ngIf="RegisterError?.length > 0" fxLayout="row" fxLayoutAlign="center center">
-            <mat-error>
+            <mat-error class="mat-title">
               {{ RegisterError }}
+            </mat-error>
+          </div>
+
+          <div *ngIf="Success === true" fxLayout="row" fxLayoutAlign="center center">
+            <mat-error class="mat-title" color="accent">
+              Success
             </mat-error>
           </div>
 
