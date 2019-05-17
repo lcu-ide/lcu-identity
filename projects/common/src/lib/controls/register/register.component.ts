@@ -167,7 +167,6 @@ export class RegisterComponent implements OnInit {
   }
 
   public set Error(val: string) {
-    if (!val) { return; }
     this._error = val;
 
     this.hasError(val);
