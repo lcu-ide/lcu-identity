@@ -248,7 +248,7 @@ export class RegisterComponent implements OnInit {
 
   //  Constructors
   constructor() {
-    this.AlreadyRegistered = new EventEmitter<boolean>();
+    this.AlreadyRegistered = new EventEmitter<any>();
 
     this.SignIn = new EventEmitter<any>();
 
