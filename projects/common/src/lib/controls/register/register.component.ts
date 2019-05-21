@@ -135,7 +135,7 @@ export class RegisterComponent implements OnInit {
    */
   // tslint:disable-next-line:no-output-rename
   @Output('already-registered')
-  public AlreadyRegistered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public AlreadyRegistered: EventEmitter<any> = new EventEmitter<any>();
 
   /**
    * Output event for sign in
@@ -308,7 +308,7 @@ export class RegisterComponent implements OnInit {
    * If user is already registered
    */
   public CurrentMember(): void {
-    this.AlreadyRegistered.emit(true);
+    this.AlreadyRegistered.emit();
   }
 
   public HandleRegister() {
