@@ -31,6 +31,11 @@ export class RegisterComponent implements OnInit {
   protected _rememberme: boolean;
 
   /**
+   * Local property for success message, with default value
+   */
+  protected _successMessage: string = 'Successful Registration';
+
+  /**
    * Local property for username
    */
   protected _username: string;
@@ -202,6 +207,15 @@ export class RegisterComponent implements OnInit {
     if (val === true) {
       this.resetForm();
     }
+  }
+
+  @Input('success-message')
+  public get SuccessMessage(): string {
+    return this._successMessage;
+  }
+
+  public set SuccessMessage(val: string) {
+    this._successMessage = val;
   }
 
   /**
