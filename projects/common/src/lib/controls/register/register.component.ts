@@ -360,9 +360,6 @@ export class RegisterComponent implements OnInit {
      } else {
       this.Form.enable();
      }
-     console.log('Form is disabled: ', val);
-
-     //(val) ? this.Form.disable() : this.Form.enable();
    }
 
    /**
