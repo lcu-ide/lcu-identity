@@ -140,28 +140,36 @@ export class RegisterComponent implements OnInit {
    */
   // tslint:disable-next-line:no-output-rename
   @Output('already-registered')
-  public AlreadyRegistered: EventEmitter<any> = new EventEmitter<any>();
+  public AlreadyRegisteredEmitter: EventEmitter<any> = new EventEmitter<any>();
 
-  /**
-   * Output event for sign in
-   */
-  // tslint:disable-next-line:no-output-rename
-  @Output('sign-in')
-  public SignIn: EventEmitter<any> = new EventEmitter<any>();
-
-  /**
+   /**
    * Output event for registration
    */
   // tslint:disable-next-line:no-output-rename
   @Output('register')
-  public Register: EventEmitter<RegisterModel> = new EventEmitter<RegisterModel>();
+  public RegisterEmitter: EventEmitter<RegisterModel>;
 
   /**
    * Output event for registration error
    */
   // tslint:disable-next-line:no-output-rename
   @Output('registration-error')
-  public RegistrationError: EventEmitter<Status> = new EventEmitter<Status>();
+  public RegistrationErrorEmitter: EventEmitter<Status>;
+
+
+  /**
+   * Output event for sign in
+   */
+  // tslint:disable-next-line:no-output-rename
+  @Output('sign-in')
+  public SignInEmitter: EventEmitter<any>;
+
+/**
+ * Output event for showing terms
+ */
+  // tslint:disable-next-line:no-output-rename
+  @Output('show-terms')
+  public ShowTermsEmitter: EventEmitter<any>;
 
   /**
    * Input property for error
@@ -262,13 +270,15 @@ export class RegisterComponent implements OnInit {
 
   //  Constructors
   constructor() {
-    this.AlreadyRegistered = new EventEmitter<any>();
+    this.AlreadyRegisteredEmitter = new EventEmitter<any>();
 
-    this.SignIn = new EventEmitter<any>();
+    this.ShowTermsEmitter = new EventEmitter<any>();
 
-    this.Register = new EventEmitter<RegisterModel>();
+    this.SignInEmitter = new EventEmitter<any>();
 
-    this.RegistrationError = new EventEmitter<Status>();
+    this.RegisterEmitter = new EventEmitter<RegisterModel>();
+
+    this.RegistrationErrorEmitter = new EventEmitter<Status>();
   }
 
   // 	Life Cycle
@@ -315,14 +325,14 @@ export class RegisterComponent implements OnInit {
    * Sign in handler
    */
   public SignInHandler() {
-    this.SignIn.emit();
+    this.SignInEmitter.emit();
   }
 
   /**
    * If user is already registered
    */
   public CurrentMember(): void {
-    this.AlreadyRegistered.emit();
+    this.AlreadyRegisteredEmitter.emit();
   }
 
   public HandleRegister() {
@@ -332,10 +342,17 @@ export class RegisterComponent implements OnInit {
 
     const register = this.buildRegisterModelFromForm();
 
-    this.Register.emit(register);
+    this.RegisterEmitter.emit(register);
   }
 
   // 	Helpers
+
+  /**
+   * Show terms and conditions
+   */
+  public ShowTermsAndConditions(): void {
+    this.ShowTermsEmitter.emit();
+  }
 
   /**
    * Build registration model
