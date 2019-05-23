@@ -69,18 +69,20 @@
             </mat-form-field>
           </div>
 
-          <div fxLayout="row" fxLayoutAlign="center center">
-            <mat-slide-toggle color="primary" formControlName="termsControl" class="mr-10" required>Agree to Terms</mat-slide-toggle>
-            <button mat-button color="primary"(click)="CurrentMember()" class="ml-10">Already Registered? Login</button>
+          <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- <mat-slide-toggle color="primary" formControlName="termsControl" class="mr-10" required>Agree to Terms</mat-slide-toggle> -->
+            <mat-checkbox color="primary" formControlName="termsControl"></mat-checkbox>
+            <div class="mat-body-1" color="primary">Agree to <a href (click)="ShowTermsAndConditions()">terms / conditions</a></div>
           </div>
 
-          <div class="mt-10" fxLayout="column" fxLayoutAlign="center center">
+          <div class="mt-10" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
             <button mat-raised-button color="primary" class="mat-button-lg full-width" [disabled]="!Form.valid" (click)="HandleRegister()">
                 Register
             </button>
-            <div class="mt-10 full-width">
+            <button mat-button color="primary" (click)="CurrentMember()">Already Registered? Login</button>
+            <!-- <div class="mt-10 full-width">
               <mat-progress-bar *ngIf="Loading && Loading === true" mode="buffer"></mat-progress-bar>
-            </div>
+            </div> -->
           </div>
       </mat-card>
     </form>
