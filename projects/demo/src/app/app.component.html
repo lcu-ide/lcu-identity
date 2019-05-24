@@ -3,6 +3,15 @@
 <br>
 <br>
 <lcu-register [UsernameValidationConfig]="UsernameValidationConfig()" (Register)="HandleRegister($event)" (AlreadyRegistered)="AlreadyRegistered($event)"></lcu-register>
+<br>
+<br>
+<br>
+<lcu-terms-conditions 
+    title='Agree to terms and conditions' 
+    sub-title='You must agree to terms and conditions to register'
+    (agree-to-terms)='AgreeToTerms($event)'
+    [terms-condition-config]='TermsConditionsConfig'>
+</lcu-terms-conditions>
 
 <!-- <lcu-forgot-password></lcu-forgot-password> -->
 

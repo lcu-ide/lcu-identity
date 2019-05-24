@@ -6,3 +6,4 @@ export * from './lib/controls/sign-in/sign-in.model';
 export * from './lib/elements/identity-config-manager-element/identity-config-manager-element.component';
 export * from './lib/lcu-identity.module';
 export * from './lib/controls/register/register-validation-pattern.model';
+export * from './lib/models/terms-conditions.model';
