@@ -77,6 +77,13 @@ export class RegisterComponent implements OnInit {
   // }
 
   /**
+   * Access confirm password field
+   */
+  public get ConfirmPasswordControl(): AbstractControl {
+    return this.Form.get('confirmPasswordControl');
+  }
+
+  /**
    * Access password field
    */
   public get PasswordControl(): AbstractControl {
@@ -84,11 +91,12 @@ export class RegisterComponent implements OnInit {
   }
 
   /**
-   * Access confirm password field
+   * Access terms field
    */
-  public get ConfirmPasswordControl(): AbstractControl {
-    return this.Form.get('confirmPasswordControl');
+  public get TermsControl(): AbstractControl {
+    return this.Form.get('termsControl');
   }
+
 
   /**
    * Toggle to show / hide password value
@@ -361,7 +369,8 @@ export class RegisterComponent implements OnInit {
       return {
         // need to pass email as username right now
         Username: this.EmailControl.value,
-        Password: this.PasswordControl.value
+        Password: this.PasswordControl.value,
+        TermsAccepted: this.TermsControl.value
       };
     }
 
