@@ -5,7 +5,7 @@
       </mat-toolbar> -->
       <div fxLayout="column">
         <mat-card-header>
-          <div fxLayout="column" fxLayoutAlign="center center">
+          <div>
               <mat-card-title>{{ Title }}</mat-card-title>
               <mat-card-subtitle>{{ SubTitle }}</mat-card-subtitle>
           </div>
@@ -24,8 +24,8 @@
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-        <button mat-raised-button color="primary" (click)="TermsConditionHandler(true)">Agree to terms / conditions</button>
-        <button mat-raised-button color="warn" (click)="TermsConditionHandler(false)">Disagree / Cancel</button>
+        <button mat-raised-button color="primary" (click)="TermsConditionHandler(true)">Agree to terms</button>
+        <button mat-raised-button color="warn" (click)="TermsConditionHandler(false)">Disagree</button>
       </div>
   </mat-card>
 </div>
