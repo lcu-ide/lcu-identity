@@ -1,10 +1,11 @@
 import { TermsConditionsModel } from './../../models/terms-conditions.model';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lcu-terms-conditions',
   templateUrl: './terms-conditions.component.html',
-  styleUrls: ['./terms-conditions.component.scss']
+  styleUrls: ['./terms-conditions.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TermsConditionsComponent {
 

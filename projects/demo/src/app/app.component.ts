@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RegisterModel, SignInModel, ValidationPatternModel } from '@lcu-ide/lcu-identity-common';
 import { TermsConditionsModel } from 'projects/common/src/lcu.api';
 
