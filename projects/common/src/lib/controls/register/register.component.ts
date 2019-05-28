@@ -251,6 +251,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public set TermsChecked(val: boolean) {
+    console.log('TermsChecked ', val);
     this._termsChecked = val;
   }
 
@@ -326,7 +327,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.pattern(EmailValidator.EmailPatternDomain)
       ])),
-      termsControl: new FormControl(false, {validators: Validators.requiredTrue}),
+      termsControl: new FormControl('', {validators: Validators.requiredTrue}),
       passwordControl: new FormControl ('', Validators.compose([
         Validators.required,
         Validators.pattern(PasswordValidator.StrongPassword)
