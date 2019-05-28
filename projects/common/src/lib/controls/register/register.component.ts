@@ -179,6 +179,9 @@ export class RegisterComponent implements OnInit {
   @Output('show-terms')
   public ShowTermsEmitter: EventEmitter<any>;
 
+  @Input('terms-checked')
+  public TermsChecked: boolean;
+
   /**
    * Input property for error
    */
