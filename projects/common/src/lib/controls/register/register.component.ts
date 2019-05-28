@@ -36,6 +36,11 @@ export class RegisterComponent implements OnInit {
   protected _successMessage: string = 'Successful Registration';
 
   /**
+   * Local property for selecting terms
+   */
+  protected _termsChecked: boolean;
+
+  /**
    * Local property for username
    */
   protected _username: string;
@@ -179,9 +184,6 @@ export class RegisterComponent implements OnInit {
   @Output('show-terms')
   public ShowTermsEmitter: EventEmitter<any>;
 
-  @Input('terms-checked')
-  public TermsChecked: boolean;
-
   /**
    * Input property for error
    */
@@ -228,6 +230,9 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  /**
+   * Input property for successful message
+   */
   @Input('success-message')
   public get SuccessMessage(): string {
     return this._successMessage;
@@ -236,6 +241,19 @@ export class RegisterComponent implements OnInit {
   public set SuccessMessage(val: string) {
     this._successMessage = val;
   }
+
+  /**
+   * Input property for checking terms
+   */
+  @Input('terms-checked')
+  public get TermsChecked(): boolean {
+    return this._termsChecked;
+  }
+
+  public set TermsChecked(val: boolean) {
+    this._termsChecked = val;
+  }
+
 
   /**
    * Input property for username validation config
