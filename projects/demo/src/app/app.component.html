@@ -2,7 +2,12 @@
 <br>
 <br>
 <br>
-<lcu-register [UsernameValidationConfig]="UsernameValidationConfig()" (Register)="HandleRegister($event)" (AlreadyRegistered)="AlreadyRegistered($event)"></lcu-register>
+<lcu-register 
+    [UsernameValidationConfig]="UsernameValidationConfig()" 
+    [terms-checked]="CheckTerms"
+    (Register)="HandleRegister($event)" 
+    (AlreadyRegistered)="AlreadyRegistered($event)">
+</lcu-register>
 <br>
 <br>
 <br>

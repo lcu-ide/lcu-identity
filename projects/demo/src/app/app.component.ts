@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { RegisterModel, SignInModel, ValidationPatternModel } from '@lcu-ide/lcu-identity-common';
 import { TermsConditionsModel } from 'projects/common/src/lcu.api';
 
@@ -12,7 +12,11 @@ export class AppComponent implements OnInit {
   title = 'demo';
 
   public Loading: boolean;
+  public CheckTerms: boolean;
   public TermsConditionsConfig: Array<TermsConditionsModel>;
+
+  @Output('agree-to-terms-emitter')
+  public AgreeToTermsEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {
     this.TermsConditionsConfig = [];
@@ -56,6 +60,7 @@ export class AppComponent implements OnInit {
   }
 
   public AgreeToTerms(evt: boolean): void {
-    console.log('agree to terms: ', evt);
+    console.log('agree to terms app.component: ', evt);
+    this.CheckTerms = evt;
   }
 }
