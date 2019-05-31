@@ -61,16 +61,28 @@ export class RegisterComponent implements OnInit {
   protected _passwordValidationConfig: ValidationPatternModel;
 
   /**
+   * Local property for session values
+   */
+  protected _sessionValues: RegisterModel;
+
+  /**
    * Local property for successful registration
    */
   protected _success: boolean;
 
-  /**
-   * Store registration data, this should change when hooked into the state
-   */
-  protected localStorage: RegisterModel;
-
   //  Properties
+
+  protected get sessionValues(): RegisterModel {
+    if (!this._sessionValues) {
+      this._sessionValues = new RegisterModel();
+    }
+
+    return JSON.parse(sessionStorage.getItem('registrationValues'));
+  }
+
+  protected set sessionValues(val: RegisterModel) {
+    this._sessionValues = val;
+  }
 
  /**
  * Access email field
@@ -232,6 +244,7 @@ export class RegisterComponent implements OnInit {
 
     if (val === true) {
       this.resetForm();
+      sessionStorage.clear();
     }
   }
 
@@ -314,8 +327,6 @@ export class RegisterComponent implements OnInit {
     this.RegisterEmitter = new EventEmitter<RegisterModel>();
 
     this.RegistrationErrorEmitter = new EventEmitter<Status>();
-
-    this.localStorage = new RegisterModel();
   }
 
   // 	Life Cycle
@@ -330,16 +341,16 @@ export class RegisterComponent implements OnInit {
       //   Validators.required,
       //   Validators.pattern(UserNameValidator.UsernamePattern)
       // ])),
-      emailControl: new FormControl((this.localStorage.Username || ''), Validators.compose([
+      emailControl: new FormControl((this.sessionValues.Username || ''), Validators.compose([
         Validators.required,
         Validators.pattern(EmailValidator.EmailPatternDomain)
       ])),
-      termsControl: new FormControl((this.localStorage.TermsAccepted || ''), {validators: Validators.requiredTrue}),
-      passwordControl: new FormControl ((this.localStorage.Password || ''), Validators.compose([
+      termsControl: new FormControl((this.sessionValues.TermsAccepted || ''), {validators: Validators.requiredTrue}),
+      passwordControl: new FormControl ((this.sessionValues.Password || ''), Validators.compose([
         Validators.required,
         Validators.pattern(PasswordValidator.StrongPassword)
       ])),
-      confirmPasswordControl: new FormControl((this.localStorage.ConfirmPassword || ''), Validators.required)
+      confirmPasswordControl: new FormControl((this.sessionValues.ConfirmPassword || ''), Validators.required)
     });
 
     this.Form.validator = PasswordValidator.PasswordsMatch(this.PasswordControl, this.ConfirmPasswordControl);
@@ -354,7 +365,7 @@ export class RegisterComponent implements OnInit {
 
     this.Form.valueChanges.subscribe(val => {
 
-      this.updateLocalStorage();
+      this.updateSessionStorage();
     });
   }
 
@@ -375,15 +386,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public HandleRegister() {
-   // this.LoadingInput = true;
-
-    // this.Errors = null;
-
-    const register = this.buildRegisterModelFromForm();
-
-    this.RegisterEmitter.emit(register);
-
-    this.localStorage = null;
+    this.RegisterEmitter.emit(this.sessionValues);
   }
 
   // 	Helpers
@@ -441,8 +444,8 @@ export class RegisterComponent implements OnInit {
    /**
     * Store registration values
     */
-   protected updateLocalStorage(): void {
-     this.localStorage = {... this.buildRegisterModelFromForm() };
+   protected updateSessionStorage(): void {
+     sessionStorage.setItem('registrationValues', JSON.stringify(this.buildRegisterModelFromForm()));
    }
   }
 
