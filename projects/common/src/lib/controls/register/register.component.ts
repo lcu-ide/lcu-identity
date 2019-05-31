@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
   //  Properties
 
   protected get sessionValues(): RegisterModel {
-    if (!this._sessionValues) {
+    if (sessionStorage.length === 0) {
       return new RegisterModel();
     }
 
