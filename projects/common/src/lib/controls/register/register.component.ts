@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
 
   protected get sessionValues(): RegisterModel {
     if (!this._sessionValues) {
-      this._sessionValues = new RegisterModel();
+      return new RegisterModel();
     }
 
     return JSON.parse(sessionStorage.getItem('registrationValues'));
