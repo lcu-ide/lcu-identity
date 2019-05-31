@@ -25,7 +25,7 @@
             </mat-error>
           </div>
 
-          <div *ngIf="Success === true" fxLayout="row" fxLayoutAlign="center center">
+          <div *ngIf="SuccessMessage.length > 0" fxLayout="row" fxLayoutAlign="center center">
             <div class="mat-title" color="accent"> {{ SuccessMessage }} </div>
           </div>
 
