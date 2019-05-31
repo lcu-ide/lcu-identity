@@ -65,6 +65,11 @@ export class RegisterComponent implements OnInit {
    */
   protected _success: boolean;
 
+  /**
+   * Store registration data, this should change when hooked into the state
+   */
+  protected localStorage: RegisterModel;
+
   //  Properties
 
  /**
@@ -309,6 +314,8 @@ export class RegisterComponent implements OnInit {
     this.RegisterEmitter = new EventEmitter<RegisterModel>();
 
     this.RegistrationErrorEmitter = new EventEmitter<Status>();
+
+    this.localStorage = new RegisterModel();
   }
 
   // 	Life Cycle
@@ -323,16 +330,16 @@ export class RegisterComponent implements OnInit {
       //   Validators.required,
       //   Validators.pattern(UserNameValidator.UsernamePattern)
       // ])),
-      emailControl: new FormControl('', Validators.compose([
+      emailControl: new FormControl((this.localStorage.Username || ''), Validators.compose([
         Validators.required,
         Validators.pattern(EmailValidator.EmailPatternDomain)
       ])),
-      termsControl: new FormControl('', {validators: Validators.requiredTrue}),
-      passwordControl: new FormControl ('', Validators.compose([
+      termsControl: new FormControl((this.localStorage.TermsAccepted || ''), {validators: Validators.requiredTrue}),
+      passwordControl: new FormControl ((this.localStorage.Password || ''), Validators.compose([
         Validators.required,
         Validators.pattern(PasswordValidator.StrongPassword)
       ])),
-      confirmPasswordControl: new FormControl('', Validators.required)
+      confirmPasswordControl: new FormControl((this.localStorage.ConfirmPassword || ''), Validators.required)
     });
 
     this.Form.validator = PasswordValidator.PasswordsMatch(this.PasswordControl, this.ConfirmPasswordControl);
@@ -346,6 +353,8 @@ export class RegisterComponent implements OnInit {
   protected onChanges(): void {
 
     this.Form.valueChanges.subscribe(val => {
+
+      this.updateLocalStorage();
     });
   }
 
@@ -373,6 +382,8 @@ export class RegisterComponent implements OnInit {
     const register = this.buildRegisterModelFromForm();
 
     this.RegisterEmitter.emit(register);
+
+    this.localStorage = null;
   }
 
   // 	Helpers
@@ -389,7 +400,7 @@ export class RegisterComponent implements OnInit {
    */
   protected buildRegisterModelFromForm(): RegisterModel {
       return {
-        // need to pass email as username right now
+        ConfirmPassword: this.ConfirmPasswordControl.value,
         Username: this.EmailControl.value,
         Password: this.PasswordControl.value,
         TermsAccepted: this.TermsControl.value
@@ -425,6 +436,13 @@ export class RegisterComponent implements OnInit {
    protected resetForm(): void {
      if (!this.Form) { return; }
      this.Form.reset();
+   }
+
+   /**
+    * Store registration values
+    */
+   protected updateLocalStorage(): void {
+     this.localStorage = {... this.buildRegisterModelFromForm() };
    }
   }
 
