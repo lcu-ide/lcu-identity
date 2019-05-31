@@ -72,6 +72,9 @@ export class RegisterComponent implements OnInit {
 
   //  Properties
 
+  /**
+   * Getter / Setter for session values
+   */
   protected get sessionValues(): RegisterModel {
     if (sessionStorage.length === 0) {
       return new RegisterModel();
