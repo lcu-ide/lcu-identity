@@ -1,0 +1,35 @@
+<div fxFlex fxLayoutAlign="center center">
+  <mat-card fxLayout="column">
+      <!-- <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="title-container">
+        <div class="mat-title title-con">{{ Title }}</div>
+      </mat-toolbar> -->
+      <!-- <div fxLayout="column"> -->
+        <!-- <mat-card-header> -->
+          <div>
+              <mat-card-title>{{ Title }}</mat-card-title>
+              <mat-card-subtitle>{{ SubTitle }}</mat-card-subtitle>
+              <mat-divider></mat-divider>
+          </div>
+        <!-- </mat-card-header> -->
+      <!-- </div> -->
+      <!-- <div fxLayout="column"> -->
+        <!-- <mat-list>
+            <mat-list-item *ngFor="let item of TermsConditionConfig" class="mt-20"> -->
+            <div *ngFor="let item of TermsConditionConfig" class="mt-20">
+              <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" class="mb-20">
+                <span class="mat-h4">{{ item.Term }}</span>
+                <span class="mat-caption">{{ item.Condition }}</span>
+              </div>
+              <mat-divider></mat-divider>
+            </div>
+            <!-- </mat-list-item>
+          </mat-list> -->
+      <!-- </div> -->
+
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="mt-20">
+        <button mat-raised-button color="primary" (click)="TermsConditionHandler(true)">Agree</button>
+        <button mat-raised-button color="warn" (click)="TermsConditionHandler(false)">Disagree</button>
+      </div>
+  </mat-card>
+</div>
+

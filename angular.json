@@ -212,7 +212,6 @@
               "projects/demo/src/styles.scss"
             ],
             "scripts": [
-              "dist/lcu/wc/lcu-identity.lcu.js"
             ],
             "es5BrowserSupport": true
           },
