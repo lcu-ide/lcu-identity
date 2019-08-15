@@ -15,7 +15,6 @@ export class TermsConditionsComponent {
   // tslint:disable-next-line:no-input-rename
   @Input('terms-condition-config')
   public TermsConditionConfig: Array<TermsConditionsModel>;
-  <a href=""
 
   /**
    * Input property for subtitle
