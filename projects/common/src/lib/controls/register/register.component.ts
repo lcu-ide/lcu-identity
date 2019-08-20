@@ -401,6 +401,7 @@ export class RegisterComponent implements OnInit {
     this.ShowTermsEmitter.emit();
   }
 
+
   /**
    * Build registration model
    */

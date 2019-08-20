@@ -49,4 +49,13 @@ export class TermsConditionsComponent {
   public TermsConditionHandler(val: boolean): void {
     this.AgreeToTerms.emit(val);
   }
+
+ /**
+   * Navigate to terms and conditions
+   */
+  public FathymTermsConditions(): void {
+    // document.location.href='http://fathym.com/terms%20of%20services/', ;
+    window.open("http://fathym.com/terms%20of%20services/", "_blank");
+  }
+  
 }
