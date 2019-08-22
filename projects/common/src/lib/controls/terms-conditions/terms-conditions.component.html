@@ -1,38 +1,556 @@
 <div fxFlex fxLayoutAlign="center center">
   <mat-card fxLayout="column">
-      <!-- <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="title-container">
+    <!-- <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="title-container">
         <div class="mat-title title-con">{{ Title }}</div>
       </mat-toolbar> -->
-      <!-- <div fxLayout="column"> -->
-        <!-- <mat-card-header> -->
-          <div>
-              <mat-card-title>{{ Title }}</mat-card-title>
-              <mat-card-subtitle>{{ SubTitle }}</mat-card-subtitle>
-              <mat-divider></mat-divider>
-          </div>
-        <!-- </mat-card-header> -->
-      <!-- </div> -->
-      <!-- <div fxLayout="column"> -->
-        <!-- <mat-list>
+    <!-- <div fxLayout="column"> -->
+    <!-- <mat-card-header> -->
+    <div>
+      <mat-card-title>{{ Title }}</mat-card-title>
+      <mat-card-subtitle>{{ SubTitle }}</mat-card-subtitle>
+      <mat-divider></mat-divider>
+    </div>
+    <!-- </mat-card-header> -->
+    <!-- </div> -->
+    <!-- <div fxLayout="column"> -->
+    <!-- <mat-list>
             <mat-list-item *ngFor="let item of TermsConditionConfig" class="mt-20">
         <div *ngFor="let item of TermsConditionConfig" class="mt-20">
               <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" class="mb-20">
                 <span class="mat-h4">{{ item.Term }}</span> 
                 
-                <span class="mat-caption">{{ item.Cnondition }}</span>
+                <span class="mat-caption">{{ item.Condition }}</span>
               </div>
               <mat-divider></mat-divider>
             </div> -->
-          <!-- </div> -->
-          <button mat-button color="primary" (click)="FathymTermsConditions()">Fathym's T & C</button>
-            <!-- </mat-list-item>
+    <!-- </div> -->
+    <div class="tandc-box">
+      <p>This Fathym Terms of Service form an agreement (this “Agreement”) made between Fathym, Inc. (“<b>Fathym</b>”)
+        and you, or if you represent an entity or other organization, that entity or organization (in either case
+        “<b>you</b>”).</p>
+      <p>Fathym provides data and app solutions through Fathym sensors, third party sensors and Smart Hubs, including
+        WeatherCloud, a wholly-owned subsidiary of Fathym, (the “<b>Products</b>”), Fathym’s website located at <a
+          href="https://fathym.com">www.Fathym.com</a>, community.fathym.com, and any other websites operated by
+        Fathym (the “<b>Site</b>”), the mobile and other software applications provided by and on behalf of Fathym
+        (each, an “<b>Application</b>”), and the services provided through the Fathym Products, Site, and Applications
+        (the “<b>Services</b>”). &nbsp;All access to and use of the Fathym Products, Site, and Applications, and
+        Services (together, the “<b>Fathym Platform</b>”) is subject to the terms of this Agreement.
+        &nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p>Before accessing or using any portion of the Fathym Platform, you are required to agree to the terms of this
+        Agreement. &nbsp;PLEASE CAREFULLY READ THIS AGREEMENT. &nbsp;BY ACCESSING OR USING ANY PORTION OF THE FATHYM
+        PLATFORM OR BY CLICKING A BOX THAT STATES THAT YOU ACCEPT OR AGREE TO THIS AGREEMENT, YOU AGREE THAT YOU HAVE
+        READ AND AGREE TO BE BOUND BY THIS AGREEMENT. &nbsp;IF YOU DO NOT AGREE TO THIS AGREEMENT, OR DO NOT MEET THE
+        QUALIFICATIONS INCLUDED IN THIS AGREEMENT, FATHYM IS NOT WILLING TO PROVIDE YOU WITH ACCESS TO OR — USE OF THE
+        FATHYM PLATFORM AND YOU MUST NOT ACCESS OR — USE THE FATHYM PLATFORM.</p>
+      <p>Unless you later enter into any other agreements with Fathym regarding the Fathym Platform, this Agreement is
+        the complete and exclusive agreement between you and Fathym regarding your access to and use of the Fathym
+        Platform. &nbsp;This Agreement supersedes any prior agreement or proposal, oral or written, and any other
+        communications between you and Fathym relating to the Fathym Platform.</p>
+      <ul>
+        <li><b>Eligibility<br>The Fathym Platform is not available to individuals under the age of 13 or who do not
+            meet any of the other qualifications included in this Agreement. &nbsp;If you are under age 13, or do not
+            meet the qualifications in this Agreement, please do not attempt to access or use the Fathym Platform.
+            &nbsp;If you are 13 or older but younger than 18, then you may access and use the Fathym Platform only if
+            your parent or guardian accepts this Agreement on your behalf. &nbsp;If you are a parent or guardian
+            entering this Agreement for the benefit of a child age 13 or older but under 18, then you agree you will
+            be solely responsible for all access to and use of the Fathym Platform.</b></li>
+      </ul>
+      <ul>
+        <li><b>Term<br></b>This Agreement is entered into as of the earlier of the date you first download or install
+          any Application or first access or use any other portion of the Fathym Platform (the “Effective Date”) and
+          will continue until terminated as set forth herein.</li>
+      </ul>
+      <ul>
+        <li><b>Changes<br>Fathym is constantly improving our Services and the Fathym Platform, and that means that
+            sometimes we have to change the legal terms under which our Fathym Platform is offered. &nbsp;If we make
+            changes that are material, we will let you know by posting that change on the Fathym Platform, or by
+            sending you an email or other communication. &nbsp;If you disagree with our changes, then you should stop
+            using the Fathym Platform. &nbsp;You will be deemed to have agreed to any modification to the Fathym
+            Platform or the Agreement through your continued use of the Fathym Platform following such notice.</b>
+        </li>
+      </ul>
+      <ul>
+        <li><b>Accounts</b></li>
+      </ul>
+      <ol>
+        <li style="list-style-type: none;">
+          <ol>
+            <li><b>Registration<br></b>You may be required to establish a user account (an “<b>Account</b>”) to access
+              portions of the functionality of the Products or portions of the Sites, Applications, or Services.
+              &nbsp;Approval of your request to establish an Account will be at the sole discretion of Fathym.
+              &nbsp;In connection with establishing an Account, you will be asked to submit certain information about
+              yourself (“<b>Registration Information</b>”). You agree that: (1) all Registration Information you
+              provide will be true and complete; and (2) you will maintain and promptly update your Registration
+              Information to keep it accurate and current. &nbsp;You may not: (a) select or use an Account of another
+              person with the intent to impersonate that person; (b) use an Account that Fathym, in its sole
+              discretion, deems offensive; or (c) use your Account in any way that is likely to cause Fathym
+              liability. &nbsp;You are solely responsible, at your own expense, for acquiring, installing and
+              maintaining all hardware, software, equipment, and Internet connectivity necessary for you to connect
+              to, access, and use the Fathym Platform.&nbsp;</li>
+            <li><b>Account IDs<br></b>Each Account and the user identification and password for each Account (the
+              “<b>Account ID</b>”) is personal in nature. &nbsp;Each Account is for your personal use and each Account
+              ID may be used only by you or, if you are an organization, by an individual employee within your
+              organization. &nbsp;You may not distribute or transfer your Account or Account ID or provide a third
+              party with the right to access your Account or Account ID. &nbsp;You are responsible for maintaining the
+              security of your Account, and you are fully responsible for all activities that occur under your
+              Account. You will ensure the security and confidentiality of your Account ID and will notify Fathym
+              immediately of any unauthorized uses of your Account or any other breaches of security. &nbsp;You are
+              fully responsible for all costs, fees, liabilities or damages incurred through the use of your Account
+              or under any Account ID (whether lawful or unlawful) and that any transactions completed through any
+              Account or under any Account ID will be deemed to have been lawfully completed by you. &nbsp;Fathym will
+              not be liable for the foregoing obligations or the failure by you to fulfill those obligations. &nbsp;
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <ul>
+        <li><b>Access &nbsp;</b></li>
+      </ul>
+      <ol>
+        <li style="list-style-type: none;">
+          <ol>
+            <li><b>To Fathym Products</b><b><br></b>Sensors may be connected to a telecom service (the Smart Hub),
+              which is used to send your Content to Fathym. &nbsp;By installing and using the Fathym Products, you
+              agree to the subscription agreement, data plan, and service provider as laid out in your Purchase
+              Agreement for such Fathym Products. Fathym Products are covered under the Product’s <a
+                href="https://docs.google.com/document/d/1ENi9bhJJmuHwCvnNxgNUZ7uNy_Us1afxiM86gS7d8EE/edit?usp=sharing">Limited
+                Warranty</a>. Fathym Products are non-transferable, and only meant for the vehicles applicable under
+              the Purchase Agreement. &nbsp;Subject to this Agreement and any Purchase Agreement accompanying the
+              Products, Fathym will provide you with a limited right to access and use the Site, Applications, and
+              Services through the Products. &nbsp;All access to and use of any firmware, software, or other
+              Technology (as defined below) included in, installed on, or incorporated into the Products is subject to
+              the terms of this Agreement and may be used solely as installed on the Products in connection with the
+              normal operation of the Products. &nbsp;Fathym reserves the right to access the Products or any other
+              portion of the Fathym Platform as needed to update, upgrade, or modify the firmware or other software
+              installed on, or incorporated into the Products. &nbsp;By using the Products, you agree to such updates.
+              &nbsp;Products should only be installed by a trained professional or following the Fathym installation
+              guide. &nbsp;Fathym is not responsible for any issues that may arise from incorrect Product
+              installation.</li>
+            <li><b>To Sites and Services</b><br>Subject to this Agreement, during the term of this Agreement, Fathym
+              will provide you with a limited right to access and use the Site and Services under this Agreement.
+              &nbsp;If you have purchased Fathym Products under a Purchase Agreement, all access to the Site and all
+              Services will be solely by you for your own use in connection with your use of and access to the
+              Products that you have purchased under a Purchase Agreement. &nbsp;If you are an entity or other
+              organization, then your employees and contractors may also use the Site and Services on your behalf in
+              connection with your internal business purposes. &nbsp;Your rights to access and use the Site and
+              Services is non-exclusive, non-transferable, and non-sublicensable. Fathym offers a variety of upgraded
+              hosting, support, and consulting Services under the terms and conditions for each such service. &nbsp;By
+              signing up for an upgraded Service account, you agree to abide by such additional terms and conditions
+              in addition to this Agreement.</li>
+            <li><b>To Applications<br></b>The Products may come pre-loaded with a proprietary Fathym Application. If
+              you have obtained a Smart Hub without a Fathym Application pre-loaded, you are responsible for sending
+              the Smart Hub to Fathym for Application installation or downloading the Application on your own.
+              &nbsp;Subject to your compliance with this Agreement and any other terms and conditions accompanying
+              each Application, Fathym will permit you to download and install Applications and operate those
+              Applications solely for the purpose of using and accessing the Smart Hub, Sites, and Services as
+              intended by Fathym. &nbsp;Fathym is not responsible for any errors or damage that may arise by
+              installing an Application on your own. &nbsp;The Application connects to the Fathym Products, and may
+              provide you with alerts and notifications. &nbsp;You may only use Applications for your own personal and
+              non-commercial purposes in accordance with this Agreement and any applicable terms and conditions
+              accompanying the Application or otherwise provided to you by Fathym. &nbsp;Except as expressly set forth
+              in the previous sentence, you are granted no licenses or other rights in or to any Application or any
+              IPR (as defined below) therein or related thereto. &nbsp;You agree not to use, modify, reproduce,
+              perform, display, create derivative works from, republish, post, transmit, participate in the transfer
+              or sale of, distribute, or in any way exploit or utilize any Application other than as expressly
+              permitted in this Agreement or any other agreement you are required to agree to before being given
+              access to any Application.</li>
+            <li><b>To Alerts and Notifications<br></b>You may sign up for custom alerts and notifications through the
+              Fathym Platform based on your data. &nbsp;Fathym does its best to ensure that alerts and notifications
+              operate as expected and with full accuracy, but it cannot guarantee performance. &nbsp;These alerts and
+              notifications should not replace common sense or other life-saving warnings.</li>
+            <li><b>To Other Users<br></b>You may be permitted to link, connect, and otherwise communicate with other
+              users and third parties through the Fathym Platform. &nbsp;By linking, connecting, or communicating with
+              other users or third parties, you are agreeing to allow those users to communicate directly with you
+              through the Fathym Platform. You are solely responsible for all communications between you and any other
+              user or third party through the Fathym Platform. &nbsp;Your extension or acceptance of a link,
+              connection or other communication with another user or other third party will serve as your affirmative
+              “opt in” to the disclosure by Fathym of any data, information, or content (which may include your
+              personally identifiable information) that communicate to that user or third party.</li>
+            <li><b>To Third-Party Services<br></b>The Fathym Platform may provide you with the choice to access
+              services developed, provided, or maintained by third-party service providers of Fathym (“<b>Third Party
+                Services</b>”). &nbsp;Unless otherwise stated in this Agreement, Fathym has no control over, is not
+              responsible for, and does not provide support for, any Third Party Services. &nbsp;In addition to the
+              terms of this Agreement, your access to and use of any Third Party Service is also subject to any other
+              agreement you may agree to before being given access to the Third Party Service (each, a “<b>Third Party
+                Service Agreement</b>”). The terms of any Third Party Service Agreement (which may include payment of
+              additional fees) will apply to the applicable Third Party Services provided under that Third Party
+              Service Agreement in addition to the terms of this Agreement but will not apply to any other Services
+              provided by Fathym that you may access through the Fathym Platform. &nbsp;Except as set forth in this
+              Agreement, the terms of any Third Party Service Agreement will control in the event of a conflict
+              between the terms of this Agreement and that Third Party Service Agreement.</li>
+          </ol>
+        </li>
+      </ol>
+      <ul>
+        <li><b>Restrictions<br></b>The Fathym Platform and the software, firmware, hardware, databases, and other
+          technology used by or on behalf of Fathym to provide the Products, Site, and Applications and their
+          structure, organization, coordination, and underlying data, information, and source code (collectively, the
+          “<b>Technology</b>”) constitute valuable IPR of Fathym. &nbsp;You will not, and will not permit any third
+          party to: (1) access or use the Fathym Platform or Technology, in whole or in part, except as expressly
+          provided in this Agreement; (2) use the Fathym Platform or Technology in any unlawful manner or in any other
+          manner that could damage, disable, overburden or impair the Technology; (3) use automated scripts or other
+          automated means to collect information from or otherwise access or interact with the Fathym Platform or
+          Technology; (4) alter, modify, reproduce, create derivative works of the Fathym Platform or Technology; (5)
+          distribute, sell, resell, lend, loan, lease, license, sublicense or transfer any of your rights to access or
+          use the Fathym Platform or Technology; (6) provide the Services, or use the Fathym Platform to provide
+          services, to third parties or otherwise make the Technology or access thereto available to any third party,
+          except as expressly permitted under this Agreement; (7) disassemble, reverse engineer, decompile, or
+          otherwise attempt to derive the source code or method of operation of or any trade secrets embodied in the
+          Fathym Platform or Technology; (8) access or attempt to access the Fathym Platform other than through the
+          interfaces provided by Fathym; (9) attempt to circumvent or overcome any technological protection measures
+          intended to restrict access to any portion of the Technology; (10) alter or misrepresent the identification
+          of the origin of any Content transmitted through the Fathym Platform; or (11) interfere in any manner with
+          the operation or hosting of the Fathym Platform or Technology, or attempt to gain unauthorized access to the
+          Fathym Platform or Technology. You will not allow any access to or use of the Technology except consistent
+          with the terms, conditions and restrictions set forth in this Agreement.</li>
+      </ul>
+      <ul>
+        <li><b>Payment and Renewal</b></li>
+      </ul>
+      <ol>
+        <li style="list-style-type: none;">
+          <ol>
+            <li><b>General Terms</b><b><br></b>In addition to the Applications, Services, and Content available for no
+              charge as part of the Fathym Platform and your Purchase Order, you may be offered the opportunity to
+              purchase, subscribe to, or otherwise obtain access to certain upgraded Applications, Services, or
+              Content or other products or services through the Fathym Platform for an additional fee (any such
+              upgraded Applications, Services, or Content, an “<b>Upgrade</b>”). &nbsp;Any purchase or other
+              transaction of an Upgrade through the Fathym Platform will be subject to any terms and conditions
+              displayed or provided through the Fathym Platform in connection with the purchase or transaction of an
+              Upgrade in addition to the terms of this Agreement and will cover the use of that Upgrade for a monthly
+              or annual subscription period as indicated. &nbsp;Unless otherwise indicated through the Fathym Platform
+              in connection with a purchase or transaction of an Upgrade, purchases or other transactions made by you
+              through the Solution cannot be exchanged and any fees or charges in connection with those purchases or
+              transactions are non-refundable. &nbsp;All information that you provide in connection with a purchase or
+              other transaction through the Fathym Platform will be accurate complete and current. &nbsp;You authorize
+              Fathym (or a company chosen to act on behalf of Fathym) to charge the credit card, debit card, mobile
+              services account, or other payment method provided in connection with any purchase or other transaction
+              made through your Account or otherwise made by you through the Fathym Platform and agree to honor all
+              charges incurred in connection with any such transaction.&nbsp;</li>
+            <li><b>Automatic Renewal</b><b><br></b>Unless you notify Fathym before the end of the applicable
+              subscription period that you want to cancel an Upgrade, your Upgrade subscription will automatically
+              renew and you authorize Fathym to collect the then-applicable annual or monthly subscription fee for
+              such Upgrade (as well as any taxes) using any credit card or other payment mechanism we have on record
+              for you.</li>
+          </ol>
+        </li>
+      </ol>
+      <ul>
+        <li><b>Termination<br>You may terminate this Agreement at any time upon notice to Fathym. &nbsp;Any such
+            notice will be effective upon actual receipt by Fathym. &nbsp;Fathym may terminate your access to all or
+            any part of the Fathym Platform at any time, with or without cause, with or without notice, effective
+            immediately. &nbsp;Fathym may also terminate this Agreement upon notice to you if Fathym, in its sole
+            discretion, ceases to make any portion of the Fathym Platform generally commercially available. &nbsp;Upon
+            termination of this Agreement for any reason: (1) all rights and subscriptions granted to you under this
+            Agreement will terminate; (2) you will immediately cease all use of and access to the Fathym Platform and
+            all Fathym Content; (3) you will cease use of and delete all Account IDs or Content in your possession or
+            control; and (4) all amounts then owed by you (if any) under this Agreement will become immediately due
+            and payable. &nbsp;Termination of this Agreement will not affect your ownership of any Fathym Products or
+            any other products purchased from Fathym. The following Sections will survive any termination of this
+            Agreement for any reason: 6 (Restrictions), 7 (Payment and Renewal), 8 (Termination), 9 (Suspension); 10
+            (Intellectual Property Rights and Ownership), 11 (Content); 12 (Data Privacy); 13 (Linked Sites); 13
+            (Disclaimer), 14 (Indemnity), 15 (Limitation on Liability), 16 (Data Privacy), 18 (Notices), 20 (Governing
+            Law), 21 (Arbitration), and 22 (Additional Terms).</b></li>
+      </ul>
+      <ul>
+        <li><b>Suspension<br></b>Without limiting Fathym’s right to terminate this Agreement, Fathym may also
+          immediately and indefinitely suspend your access to the Fathym Platform, with or without notice to you, upon
+          any actual, threatened, or suspected breach of this Agreement or applicable law or upon any other conduct
+          deemed by Fathym to be inappropriate or detrimental or harmful to the Fathym Platform or Technology or to
+          Fathym, any other Fathym user, or any other third party.</li>
+      </ul>
+      <ul>
+        <li><b>Intellectual Property Rights and Ownership<br>This Agreement does not transfer from Fathym to you any
+            aspects of the Fathym Platform or IPR (as defined below), and all right, title and interest, including,
+            without limitation, all IPR, in and to the Fathym Platform, Fathym Content, Technology, and any additions,
+            improvements, updates, and modifications thereto will remain (as between the parties) solely with Fathym.
+            &nbsp;You acknowledge that you are not receiving any ownership interest in or to any of the foregoing, and
+            no right or license is granted to you to use them apart from the rights granted under this Agreement.
+            &nbsp;Fathym, Fathym.co, Fathym.com, the Fathym and Fathym logos, and all other trademarks, service marks,
+            graphics, and logos used in connection with Fathym or the Fathym Platform are trademarks or registered
+            trademarks of Fathym, Fathym’s parent entity, or Fathym’s licensors. &nbsp;Other trademarks, service
+            marks, graphics and logos used in connection with the Fathym Platform may be the trademarks of other third
+            parties. &nbsp;Your use of the Fathym Platform grants you no right or license to reproduce or otherwise
+            use any Fathym or third-party trademarks. &nbsp;For purposes of this Agreement, “IPR” means any and all
+            intellectual property and proprietary rights and all other legal rights protecting data, information or
+            intangible property throughout the world, including, without limitation, any and all copyrights,
+            trademarks, service marks, trade secrets, patent rights, moral rights, rights in data and databases, and
+            contract rights.</b></li>
+      </ul>
+      <ul>
+        <li><b>Content</b></li>
+      </ul>
+      <ol>
+        <li style="list-style-type: none;">
+          <ol>
+            <li><b>Your Content</b><b><br></b>The Fathym Platform gives you the ability to access and use data,
+              information, and content (“<b>Content</b>”) coming from Fathym Products or any additional sources you
+              provide. &nbsp;You are solely responsible for all Content that you may provide or upload to the Fathym
+              Platform or otherwise generate through your use of, or access to, the Fathym Platform (“<b>Your
+                Content</b>”). &nbsp;As between you and Fathym, you retain ownership of Your Content. &nbsp;However,
+              subject to any limitations included in the Privacy Policy, you grant Fathym a nonexclusive,
+              royalty-free, perpetual, irrevocable, and fully sublicensable (including, without limitation, to users
+              and other third parties) right to use, copy, store, host, reproduce, modify, display, adapt, publish,
+              publicly perform, translate, create derivative works from, distribute, and display (“<b>Use</b>”) Your
+              Content, and make Your Content available to third parties selected by Fathym for purposes of research,
+              providing the Services to you, &nbsp;and for use in making enhancements and improvements to the Fathym
+              Platform. &nbsp;In the case of WeatherCloud Content you may produce (“<b>Your WeatherCloud
+                Content</b>”), you you grant Fathym and WeatherCloud a nonexclusive, royalty-free, perpetual,
+              irrevocable, and fully sublicensable (including, without limitation, to users and other third parties)
+              right to use, copy, store, host, reproduce, modify, display, adapt, publish, publicly perform,
+              translate, create derivative works from, distribute, and display (“<b>Use</b>”) Your WeatherCloud
+              Content for purposes of research, Ground Truth reporting, providing the Services to you, third party
+              sales, and for use in making enhancements and improvements to the WeatherCloud Platform. WeatherCloud
+              combines this Content gathered from the WeatherCloud Products to infer Ground Truth, the weather
+              conditions of the road. This license allows Fathym to make Your WeatherCloud Content available to third
+              parties selected by Fathym so that these third parties can analyze and distribute Your WeatherCloud
+              Content through their products and services. &nbsp;If you have made Your Content public to the broader
+              Fathym community via Permissions, you also give other Fathym users permission to share Your Content on
+              other Fathym users’ dashboards and add their own Content to Your Content. &nbsp;You represent and
+              warrant that none of Your Content or the use of Your Content by Fathym: (1) violates this Agreement, the
+              Privacy Policy, or any requirements under applicable laws; (2) is libelous, defamatory, obscene,
+              abusive, pornographic, threatening, or an invasion of privacy; (3) constitutes an infringement,
+              misappropriation or violation of the IPR or other rights of any third party; (4) is illegal in any way
+              or advocates illegal activity; (5) is an advertisement or solicitation of funds, goods, or services
+              (unless you have entered into a separate Advertiser Agreement with Fathym); (6) is false, misleading or
+              inaccurate; (7) is or could be considered junk mail, spam, a part of a pyramid scheme, a disruptive
+              commercial message or disruptive advertisement; or (8) constitutes the unauthorized practice of
+              medicine, law, therapy or other professional service. &nbsp;Fathym is not responsible or liable for any
+              deletion (and will not provide a refund of any amounts paid), correction, destruction, damage, loss or
+              failure to store, restore or back-up any of Your Content. &nbsp;You agree that you have all right,
+              title, interest, and consent in Your Content necessary to allow Fathym to Use Your Content as set forth
+              in this Agreement.&nbsp;</li>
+            <li><b>Your Content Dashboard &nbsp;</b><b><br></b>You may use the Fathym Platform to create, organize,
+              and configure Your Content in a dashboard, provided through the Fathym Platform, that contains
+              functionality such as Abilities, Views, Catalog Parts, Rules, Roles, Permissions, or other functionality
+              (the, “<b>Your Content Dashboard</b>“). &nbsp;Your Content Dashboard is linked to your Account.
+              &nbsp;You are responsible for maintaining the security of your Account and Your Content Dashboard, and
+              you are fully responsible for all activities that occur under your Account and any other actions taken
+              in connection with Your Content Dashboard. &nbsp;You must not describe or assign keywords to Your
+              Content Dashboard in a misleading or unlawful manner, including in a manner intended to trade on the
+              name or reputation of others, and Fathym may change or remove any description or keyword that it
+              considers inappropriate or unlawful, or otherwise likely to cause Fathym liability. &nbsp;Fathym
+              reserves the right to display advertisements on Your Content Dashboard unless you have purchased an
+              Upgrade, such as a Custom App Solution, an Ad-free, or a Premium/Enterprise Services Account.
+              &nbsp;Fathym reserves the right to display attribution links such as ‘Powered by Fathym’ or ‘Powered by
+              Fathym’ in Your Data Dashboard. Footer credits and the Fathym.co toolbar may not be removed, regardless
+              of Upgrades purchased.&nbsp;</li>
+            <li><b>Fathym Content<br></b>Other than Your Content, all Content accessible through the Fathym Platform
+              (“<b>Fathym Content</b>”) is owned by Fathym or any user or third party providing the Fathym Content.
+              &nbsp;All Fathym Content is for informational purposes only. Fathym has not verified the accuracy of,
+              and will not be responsible for any errors or omissions in, any Fathym Content. &nbsp;You are solely
+              responsible for your use of, or reliance on, any Fathym Content. &nbsp;Subject to this Agreement, you
+              may access the Fathym Content solely for Your own personal and noncommercial purposes in connection with
+              your own use of the Fathym Platform. &nbsp;You are granted no other licenses or rights in or to any
+              Fathym Content. &nbsp;You will not, and will not permit any third party to: (1) alter, modify,
+              reproduce, or create derivative works of any Fathym Content; (2) distribute, sell, resell, lend, loan,
+              lease, license, sublicense or transfer any Fathym Content; or (3) alter, obscure, or remove any
+              copyright, trademark or any other notices that are provided on or in connection with any Fathym Content.
+              &nbsp;Certain of the Fathym Content may include or be based on Content from third party providers
+              (“<b>Third Party Content</b>”). &nbsp;Fathym has no independent basis to verify or contradict the
+              accuracy or completeness of the Third Party Content and will not be responsible for any erroneous Third
+              Party Content provided through the Fathym Platform. &nbsp;By operating the Fathym Platform, Fathym does
+              not represent or imply that it endorses any Content, or that it believes such Content is accurate,
+              useful, or non-harmful. &nbsp;Without limiting the foregoing, Fathym will not be held liable to you or
+              any other third party for any Content, including Your Content (as defined below), under a Federal Law
+              called the Communications Decency Act or CDA, 47 U.S.C. § 230. &nbsp;Except as set forth in this
+              Agreement, you are granted no licenses or other rights in or to any Fathym Content, or any IPR (as
+              defined below) therein or related thereto. &nbsp;Fathym disclaims any responsibility for any harm
+              resulting from your use of the Fathym Content.</li>
+          </ol>
+        </li>
+      </ol>
+      <ul>
+        <li><b>Data Privacy<br></b>You expressly consent to the use and disclosure of personally identifiable and
+          non-personally identifiable data and information as described in the Fathym Privacy Policy posted to the
+          Site (“<b>Privacy Policy</b>”). &nbsp;Notwithstanding anything in the Privacy Policy, Fathym will have the
+          right to collect, extract, compile, synthesize, and analyze non-personally identifiable data or information
+          (data or information that does not identify an entity or natural person as the source thereof) resulting
+          from your access to the Fathym Platform. &nbsp;To the extent any such data or information is collected or
+          generated by Fathym Platform, the data and information will be solely owned by Fathym and may be used by
+          Fathym for any lawful business purpose without a duty of accounting to you, provided that the data and
+          information is used only in an aggregated form, without directly identifying you or any other individual or
+          entity as the source thereof.</li>
+      </ul>
+      <ul>
+        <li><b>Linked Sites &nbsp;<br>Fathym has not reviewed, and cannot review, all of the material, including
+            computer software, made available through the websites and webpages to which the Fathym Platform links,
+            and that link to the Fathym Platform. &nbsp;Fathym does not have any control over those non-Fathym
+            websites, web pages, applications, or data, and is not responsible for their contents or their use.
+            &nbsp;By linking to a non-Fathym application, data set or website, Fathym does not represent or imply that
+            it endorses such application, data set or website. &nbsp;You are responsible for taking precautions as
+            necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other
+            harmful or destructive content. Fathym disclaims any responsibility for any harm resulting from your use
+            of non-Fathym applications, data sets, or websites.</b></li>
+      </ul>
+      <ul>
+        <li><b>Notices<br></b>All notices required to be provided to Fathym under this Agreement will be provided by
+          you in writing and shall be delivered by hand, certified U.S. mail (return receipt requested), or overnight
+          delivery service (with confirmation of receipt) to Fathym, 1942 Broadway, Boulder, CO 80302, or the address
+          for Fathym set forth on the Site. &nbsp;All notices and other communications provided to you may be provided
+          by Fathym by email to the email address Fathym maintains on file for you or to any other mailing address you
+          have provided to Fathym. &nbsp;All notices will be deemed to have been received by the addressee upon
+          confirmed receipt or, as applicable, within 24 hours after Fathym sends notice by email to you.</li>
+      </ul>
+      <ul>
+        <li><b>Copyright Infringement and DMCA Policy<br>We respect the intellectual property rights of others and ask
+            that you do too. &nbsp;If you believe in good faith that your copyrighted work has been reproduced on the
+            Fathym Platform without your authorization in a way that constitutes copyright infringement, you may
+            notify our designated copyright agent by sending an e-mail to <a
+              href="mailto:communications@fathym.com">communications@fathym.com</a>.</b>
+          <p>Please provide the following information to Fathym’s copyright infringement agent: (1) the identity of
+            the infringed work, and of the allegedly infringing work; (2) your name, address, daytime phone number,
+            and email address, if available; (3) a statement that you have a good-faith belief that the use of the
+            copyrighted work is not authorized by the owner, his or her agent, or the law; (4) a statement that the
+            information in the notification is accurate and, under penalty of perjury, that you are authorized to act
+            on behalf of the owner; and (5) your electronic or physical signature. &nbsp;Fathym reserves the right to
+            delete or disable content alleged to be infringing and terminate accounts of repeat infringers.</p>
+        </li>
+      </ul>
+      <ul>
+        <li><b>Domain Names<br>If you are registering a domain name or using or transferring a previously registered
+            domain name, you acknowledge and agree that use of the domain name is also subject to the policies of the
+            Internet Corporation for Assigned Names and Numbers (ICANN), including their <a
+              href="http://www.icann.org/en/registrars/registrant-rights-responsibilities-en.htm">Registration Rights
+              and Responsibilities</a>.</b></li>
+      </ul>
+      <ul>
+        <li><b>General Representation and Warranty<br>You represent and warrant to Fathym that: (1) you have the legal
+            right and authority to enter into this Agreement; (2) this Agreement forms a binding legal obligation on
+            your behalf; (3) you have the legal right and authority to perform your obligations under this Agreement
+            and to grant the rights and licenses described in this Agreement; (4) your use of the Fathym Platform will
+            be in strict accordance with the Fathym Privacy Policy, with this Agreement and with all applicable laws
+            and regulations (including without limitation any local laws or regulations in your country, state, city,
+            or other governmental area, regarding online conduct and acceptable Content, and including all applicable
+            laws regarding the transmission of technical Content exported from the United States or the country in
+            which you reside); and (5) your use of the Fathym Platform will not infringe or misappropriate the IPR of
+            any third party.</b></li>
+      </ul>
+      <ul>
+        <li><b>Disclaimer of Warranties<br></b>THE FATHYM PLATFORM (INCLUDING THE PRODUCTS, SITES, APPLICATIONS,
+          SERVICES, TECHNOLOGY, AND ALL CONTENT) ARE PROVIDED TO YOU STRICTLY “AS IS” AND “AS AVAILABLE” AND FATHYM
+          AND ITS THIRD PARTY PROVIDERS EXPRESSLY DISCLAIM, AND YOU DISCLAIM ANY RELIANCE ON, ANY AND ALL WARRANTIES
+          AND REPRESENTATIONS OF ANY KIND WITH REGARD TO FATHYM OR ANY OTHER SUBJECT MATTER OF THIS AGREEMENT, WHETHER
+          EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF FITNESS FOR A PARTICULAR
+          PURPOSE, MERCHANTABILITY, TITLE OR NON-INFRINGEMENT. WITHOUT LIMITING THE FOREGOING, FATHYM DOES NOT
+          REPRESENT OR WARRANT THAT: (1) THE FATHYM PLATFORM WILL MEET YOUR REQUIREMENTS; (2) THE FATHYM PLATFORM WILL
+          BE ERROR-FREE, TIMELY OR UNINTERRUPTED; OR (3) THE RESULTS OBTAINED FROM THE — USE OF THE FATHYM PLATFORM
+          WILL BE ACCURATE OR RELIABLE. &nbsp;NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY FATHYM, ITS EMPLOYEES,
+          DISTRIBUTORS, DEALERS, OR AGENTS WILL INCREASE THE SCOPE OF, OR CREATE ANY NEW WARRANTIES IN ADDITION TO,
+          THE WARRANTIES EXPRESSLY SET FORTH IN THIS SECTION.YOU RECOGNIZE THAT THE FATHYM PLATFORM AND ALL SERVICES
+          AND CONTENT PROVIDED THROUGH THE FATHYM PLATFORM ARE NOT BUILT FOR ERROR-FREE ACCESS AND THAT INTERRUPTIONS,
+          CRASHES, DOWNTIME, DELAYS, AND LATENCY MAY OCCUR FROM TIME TO TIME. THE PLATFORM IS NOT FAULT TOLERANT AND
+          IS NOT DESIGNED OR INTENDED FOR — USE FOR OR WITH REAL-TIME ROUTE GUIDANCE (INCLUDING WITHOUT LIMITATION,
+          TURN-BY-TURN ROUTE GUIDANCE AND OTHER ROUTING THAT IS ENABLED THROUGH THE — USE OF A GPS OR OTHER SENSOR),
+          NAVIGATION OR COMMUNICATIONS SYSTEMS, TRAFFIC CONTROL SYSTEMS, OR FOR OR IN CONNECTION WITH ANY SYSTEMS OF
+          FUNCTIONS FOR AUTOMATIC OR AUTONOMOUS CONTROL OF VEHICLE BEHAVIOR, WHERE THE FAILURE OF THE PLATFORM COULD
+          LEAD TO DEATH, PERSONAL INJURY, OR SEVERE PHYSICAL OR PROPERTY DAMAGE. &nbsp;YOU ASSUME ALL RISK OF — USE OF
+          THE FATHYM PLATFORM IN SUCH APPLICATIONS AND FATHYM PLATFORM AND ITS SUPPLIERS DISCLAIM ANY RESPONSIBILITY
+          OR LIABILITY FOR ANY AND ALL DAMAGES THAT MAY BE INCURRED DUE TO THE — USE OF THE FATHYM PLATFORM IN SUCH
+          APPLICATIONS.</li>
+      </ul>
+      <ul>
+        <li><b>Indemnification<br>You hereby agree to indemnify, defend, and hold harmless Fathym and its officers,
+            directors, shareholders, affiliates, employees, agents, contractors, assigns, users, customers, providers,
+            licensees, and successors in interest (“Indemnified Parties”) from any and against all claims, losses,
+            liabilities, damages, fees, expenses and costs (including attorneys’ fees, court costs, damage awards, and
+            settlement amounts) that result from any claim or allegation against any Indemnified Party arising in any
+            manner from: (1) your access to or use of the Fathym Platform, including any Content or Services; (2) Your
+            Content, Your Content Dashboard, or any access to or use thereof; (3) any access to or use of Your Content
+            or Your Content Dashboard by any other users or third party; (4) your collection, use, and disclosure of
+            any Fathym Content, and (5) your breach of any provision of this Agreement, including any representation
+            or warranty. &nbsp;Fathym will provide you with notice of any such claim or allegation, and Fathym will
+            have the right to participate in the defense of any such claim at its expense.</b></li>
+      </ul>
+      <ul>
+        <li><b>Limitation of Liability<br>FATHYM WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY
+            OR CONSEQUENTIAL DAMAGES, HOWEVER CA– USED, UNDER ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+            LIABILITY OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE), ARISING IN CONNECTION WITH OR OUT OF THE — USE OF
+            THE FATHYM PLATFORM, CONTENT OR SERVICES, EVEN IF FATHYM HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+            DAMAGES, INCLUDING, WITHOUT LIMITATION, ANY LOSS OF YOUR CONTENT OR YOUR CONTENT DASHBOARD, OPPORTUNITY,
+            REVENUES, PROFITS OR REPUTATION, BUSINESS INTERRUPTION, OR PROCUREMENT OF SUBSTITUTE CONTENT, GOODS OR
+            SERVICES. &nbsp;FATHYM’S TOTAL CUMULATIVE LIABILITY IN CONNECTION WITH THIS AGREEMENT AND ALL CONTENT AND
+            SERVICES PROVIDED UNDER THIS AGREEMENT OR THROUGH THE PLATFORM, WHETHER IN CONTRACT OR TORT OR OTHERWISE,
+            WILL NOT EXCEED $10 OR, IN THE CASE OF YOU HAVE PAID FEES TO FATHYM TO ACCESS THE FATHYM PLATFORM OR ANY
+            APPLICATIONS, SERVICES, OR CONTENT, THE AMOUNTS PAID BY YOU TO FATHYM IN THE 3-MONTH PERIOD PRECEDING THE
+            EVENTS GIVING RISE TO ANY LIABILITY. &nbsp;YOU AGREE THAT FATHYM WOULD NOT ENTER INTO THIS AGREEMENT
+            WITHOUT THESE LIMITATIONS ON ITS LIABILITY. &nbsp;IN JURISDICTIONS WHERE LIMITATION OF LIABILITY FOR
+            CONSEQUENTIAL OR INCIDENTAL DAMAGES IS NOT PERMITTED, FATHYM’S LIABILITY IS LIMITED TO THE MAXIMUM EXTENT
+            PERMITTED BY LAW.</b></li>
+      </ul>
+      <ul>
+        <li><b>Translation</b><b><br></b>This Agreement was originally written in English (US). &nbsp;Fathym may
+          translate this Agreement into other languages. In the event of a conflict between a translated version of
+          this Agreement and the English version, the English version will control.</li>
+      </ul>
+      <ul>
+        <li><b>Arbitration<br></b>Except as otherwise provided below, the parties will attempt to resolve all
+          disputes,&nbsp;controversies, or claims arising under, out of, or relating to this Agreement, including the
+          formation, validity, binding effect, interpretation, performance, breach or termination, of this Agreement
+          and the arbitrability of the issues submitted to arbitration hereunder and non-contractual claims relating
+          to this Agreement (each, a “<b>Dispute</b>”), in accordance with the procedures set forth in this Section.
+          &nbsp;If any Dispute cannot be resolved through negotiations between the parties within 5 days of notice
+          from one party to the other of the Dispute, such Dispute will be finally settled through binding arbitration
+          under the arbitration of the American Arbitration Association (“<b>AAA</b>”) then in effect (the
+          “<b>Rules</b>”). &nbsp;Either party may commence the arbitration by delivering a request for arbitration as
+          specified in the Rules. &nbsp;The arbitration will be conducted before a sole neutral arbitrator selected by
+          agreement of the parties. &nbsp;If the parties cannot agree on the appointment of a single arbitrator within
+          30 days (the “<b>Initial Period</b>”) after either party to this Agreement delivers a request for
+          arbitration, a neutral arbitrator will be selected as provided in the Rules. &nbsp;The arbitration will be
+          conducted exclusively in the English language at a site specified by Fathym in Denver, Colorado U.S.A. The
+          award of the arbitrator will be the exclusive remedy of the parties for all claims, counterclaims, issues or
+          accountings presented or plead to the arbitrator. &nbsp;The award of the arbitrators will require payment of
+          the costs, fees and expenses incurred by the prevailing party in any such arbitration by the non-prevailing
+          party. &nbsp;Judgment upon the award may be entered in any court or governmental body having jurisdiction
+          thereof. &nbsp;Any additional costs, fees or expenses incurred in enforcing the award may be charged against
+          the party that resists its enforcement.</li>
+      </ul>
+      <ul>
+        <li><b>Governing Law<br></b>The interpretation of the rights and obligations of the parties under this
+          Agreement, and any negotiations, arbitrations or other legal proceedings hereunder, will be governed in all
+          respects exclusively by the laws of the State of Colorado, U.S.A. as such laws apply to contracts between
+          Colorado residents performed entirely within Colorado. &nbsp;Subject to Section 22 (Arbitration), each party
+          agrees that it will bring any action or proceeding arising from or relating to this Agreement exclusively in
+          a federal or state court in Denver, Colorado. &nbsp;You irrevocably submit to the personal jurisdiction and
+          venue of any such court in any such action or proceeding or in any action or proceeding brought in such
+          courts by Fathym.</li>
+      </ul>
+      <ul>
+        <li><b>Miscellaneous<br>Fathym will not be responsible for any failure to provide any Services or any access
+            to or use of any other portions of the Fathym Solution, Your Content, or Your Content Dashboard due to the
+            actions of any third party provider or any other reason beyond Fathym’s reasonable control. &nbsp;Except
+            as expressly set forth in this Agreement, this Agreement will exclusively govern your access to and use of
+            the Fathym Platform and constitutes the entire agreement between Fathym and you concerning the subject
+            matter hereof. &nbsp;This Agreement supersedes any proposal or prior agreement, oral or written, and any
+            other communications between the parties in relation to the subject matter of this Agreement. &nbsp;Except
+            as expressly set forth in this Agreement, this Agreement may be modified by a written amendment signed by
+            an authorized executive of Fathym. &nbsp;All waivers under this Agreement must be in writing. &nbsp;A
+            waiver by either party of any term or condition of this Agreement or any breach thereof, in any one
+            instance, will not waive such term or condition or any subsequent breach thereof. &nbsp;If any provision
+            of this Agreement is held to be unenforceable, that provision will be removed to the extent necessary to
+            comply with the law, replaced by a provision that most closely approximates the original intent and
+            economic effect of the original to the extent consistent with the law, and the remaining provisions will
+            remain in full force. &nbsp;With Fathym’s consent, you may assign your rights under this Agreement to any
+            party that consents to, and agrees to be bound by, its terms and conditions; Fathym may assign its rights
+            under this Agreement without condition. &nbsp;This Agreement will be binding upon and will inure to the
+            benefit of the parties, their successors and permitted assigns. &nbsp;The parties hereto are independent
+            parties, not agents, employees, or employers of the other or joint venturers, and neither acquires
+            hereunder any right or ability to bind or enter into any obligation on behalf of the other. &nbsp;You will
+            be solely responsible, at your own expense, for acquiring, installing and maintaining all any Products and
+            any other hardware, software, and other equipment as may be necessary for you to connect to, access, and
+            use the Fathym Platform.</b></li>
+      </ul>
+      <ul>
+        <li><b>Update</b><b><br></b>This Terms of Service was last updated on: August 24, 2015.</li>
+      </ul>
+    </div>
+    <!-- </mat-list-item>
           </mat-list> -->
-      <!-- </div> -->
+    <!-- </div> -->
 
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="mt-20">
-        <button mat-raised-button color="primary" (click)="TermsConditionHandler(true)">Agree</button>
-        <button mat-raised-button color="warn" (click)="TermsConditionHandler(false)">Disagree</button>
-      </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="mt-20">
+      <button mat-raised-button color="primary" (click)="TermsConditionHandler(true)">Agree</button>
+      <button mat-raised-button color="warn" (click)="TermsConditionHandler(false)">Disagree</button>
+    </div>
   </mat-card>
 </div>
-
